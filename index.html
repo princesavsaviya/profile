@@ -123,9 +123,26 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-2xl text-primary focus:outline-none">
+            <button class="md:hidden text-2xl text-primary focus:outline-none" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden bg-background/95 backdrop-blur-xl border-b border-white/5 absolute w-full left-0 top-full"
+            id="mobile-menu">
+            <div class="flex flex-col p-6 space-y-4 font-mono text-sm">
+                <a href="#about"
+                    class="text-slate-400 hover:text-primary transition-colors hover:translate-x-2 transform duration-300 block">About</a>
+                <a href="#experience"
+                    class="text-slate-400 hover:text-primary transition-colors hover:translate-x-2 transform duration-300 block">Experience</a>
+                <a href="#projects"
+                    class="text-slate-400 hover:text-primary transition-colors hover:translate-x-2 transform duration-300 block">Projects</a>
+                <a href="#simulations"
+                    class="text-slate-400 hover:text-primary transition-colors hover:translate-x-2 transform duration-300 block">Gallery</a>
+                <a href="#contact"
+                    class="text-primary border border-primary/50 text-center py-3 rounded-lg hover:bg-primary/10 transition-all hover:shadow-neon block">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -663,6 +680,31 @@
             offset: 50,
             duration: 800,
             easing: 'ease-out-cubic',
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
         });
     </script>
 </body>
