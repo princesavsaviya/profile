@@ -117,7 +117,7 @@
                 <a href="#simulations"
                     class="hover:text-primary transition-colors hover:scale-105 transform">Gallery</a>
                 <a href="#contact"
-                    class="px-4 py-2 border border-primary text-primary rounded hover:bg-primary/10 transition-all shadow-neon hover:shadow-neon-strong">Contact</a>
+                    class="px-4 py-2 border border-primary text-primary rounded hover:bg-primary/10 transition-all hover:shadow-neon">Contact</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -160,7 +160,7 @@
 
             <div class="flex flex-col sm:flex-row gap-5 justify-center">
                 <a href="./Prince_Savsaviya_Resume.pdf" target="_blank"
-                    class="px-8 py-4 bg-primary/10 border border-primary/50 text-primary font-mono rounded-lg hover:bg-primary/20 transition-all hover:shadow-neon flex items-center justify-center gap-3 group hover:-translate-y-1">
+                    class="px-8 py-4 border border-primary/50 text-primary font-mono rounded-lg hover:bg-primary/10 transition-all hover:shadow-neon flex items-center justify-center gap-3 group hover:-translate-y-1">
                     <i class="fas fa-file-pdf text-xl group-hover:scale-110 transition-transform"></i>
                     <span class="font-bold">Download Resume</span>
                 </a>
@@ -172,7 +172,7 @@
                 </a>
             </div>
 
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-500">
+            <div class="mt-16 animate-bounce text-slate-500">
                 <i class="fas fa-chevron-down text-xl"></i>
             </div>
         </div>
@@ -187,88 +187,104 @@
                 <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
             </div>
 
-            <div class="grid md:grid-cols-5 gap-12">
-                <div class="md:col-span-3 text-slate-400 leading-relaxed text-lg space-y-6" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <p>
-                        I am an M.S. Computer Science candidate at <strong class="text-white">UC
-                            Riverside</strong> with a focus on engineering robust systems for machine learning.
-                    </p>
-                    <p>
-                        My expertise lies in designing infrastructure that can handle the heavy compute demands of
-                        modern AI. From building <strong class="text-white">predictive autoscalers</strong> for
-                        Kubernetes to optimizing <strong class="text-white">distributed search engines</strong>, I enjoy
-                        the challenge of making systems faster, scalable, and more reliable.
-                    </p>
-                    <p>
-                        I also have deep roots in HPC, optimizing low-level <span
-                            class="font-mono text-primary text-sm bg-primary/10 px-1 rounded">CUDA</span> kernels and
-                        MPI communication to squeeze every bit of performance out of hardware for physics simulations.
-                    </p>
-                </div>
+            <div class="max-w-4xl mx-auto text-slate-400 leading-relaxed text-lg space-y-6" data-aos="fade-up"
+                data-aos-delay="100">
+                <p>
+                    I am an M.S. Computer Science candidate at <strong class="text-white">UC
+                        Riverside</strong> with a focus on engineering robust systems for machine learning.
+                </p>
+                <p>
+                    My expertise lies in designing infrastructure that can handle the heavy compute demands of
+                    modern AI. From building <strong class="text-white">predictive autoscalers</strong> for
+                    Kubernetes to optimizing <strong class="text-white">distributed search engines</strong>, I enjoy
+                    the challenge of making systems faster, scalable, and more reliable.
+                </p>
+                <p>
+                    I also have deep roots in HPC, optimizing low-level <span
+                        class="font-mono text-primary text-sm bg-primary/10 px-1 rounded">CUDA</span> kernels and
+                    MPI communication to squeeze every bit of performance out of hardware for physics simulations.
+                </p>
+            </div>
+        </div>
+    </section>
 
-                <div class="md:col-span-2" data-aos="fade-left" data-aos-delay="200">
-                    <div
-                        class="glass-panel p-8 rounded-xl relative group hover:border-primary/30 transition-colors duration-300">
-                        <div
-                            class="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition-all">
-                        </div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-surfaceHighlight/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-12" data-aos="fade-right">
+                <span class="font-mono text-primary text-2xl">02.</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Technical Arsenal</h2>
+                <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
+            </div>
 
-                        <h3 class="text-white font-bold mb-6 flex items-center gap-2">
-                            <i class="fas fa-code text-primary"></i> Technical Arsenal
-                        </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up">
 
-                        <div class="space-y-4 font-mono text-sm text-secondary">
-                            <div>
-                                <div class="text-xs uppercase tracking-widest text-slate-500 mb-1">Languages</div>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="hover:text-white transition-colors">C++</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">Python</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">CUDA</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">Rust</span>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="text-xs uppercase tracking-widest text-slate-500 mb-1">HPC & ML</div>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="hover:text-white transition-colors">PyTorch</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">MPI</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">OpenMP</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">PETSc</span>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="text-xs uppercase tracking-widest text-slate-500 mb-1">Infrastructure</div>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="hover:text-white transition-colors">Kubernetes</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">Docker</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">AWS</span>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="text-xs uppercase tracking-widest text-slate-500 mb-1">Robotics</div>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="hover:text-white transition-colors">ROS 2</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">Gazebo</span> <span
-                                        class="text-slate-600">/</span>
-                                    <span class="hover:text-white transition-colors">PX4</span>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Languages -->
+                <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
+                    <div class="mb-4 text-primary text-2xl"><i class="fas fa-code"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Languages</h3>
+                    <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
+                        <span class="hover:text-white transition-colors">C++</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">Python</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">CUDA</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">Rust</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">SQL</span>
                     </div>
                 </div>
+
+                <!-- HPC & ML -->
+                <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
+                    <div class="mb-4 text-accent text-2xl"><i class="fas fa-brain"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-4">HPC & ML</h3>
+                    <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
+                        <span class="hover:text-white transition-colors">PyTorch</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">MPI</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">OpenMP</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">PETSc</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">TensorRT</span>
+                    </div>
+                </div>
+
+                <!-- Infrastructure -->
+                <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
+                    <div class="mb-4 text-blue-400 text-2xl"><i class="fas fa-server"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Infrastructure</h3>
+                    <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
+                        <span class="hover:text-white transition-colors">Kubernetes</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">Docker</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">AWS</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">Terraform</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">CI/CD</span>
+                    </div>
+                </div>
+
+                <!-- Robotics -->
+                <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
+                    <div class="mb-4 text-purple-400 text-2xl"><i class="fas fa-robot"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Robotics</h3>
+                    <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
+                        <span class="hover:text-white transition-colors">ROS 2</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">Gazebo</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">PX4</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">OpenCV</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -277,7 +293,7 @@
     <section id="experience" class="py-24">
         <div class="max-w-5xl mx-auto px-6">
             <div class="flex items-center gap-4 mb-16" data-aos="fade-right">
-                <span class="font-mono text-primary text-2xl">02.</span>
+                <span class="font-mono text-primary text-2xl">03.</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-white">Experience</h2>
                 <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
             </div>
@@ -357,7 +373,7 @@
 
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center gap-4 mb-16" data-aos="fade-right">
-                <span class="font-mono text-primary text-2xl">03.</span>
+                <span class="font-mono text-primary text-2xl">04.</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-white">Featured Projects</h2>
                 <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
             </div>
@@ -561,7 +577,7 @@
     <section id="simulations" class="py-24">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex items-center gap-4 mb-16" data-aos="fade-right">
-                <span class="font-mono text-primary text-2xl">04.</span>
+                <span class="font-mono text-primary text-2xl">05.</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-white">Simulation Gallery</h2>
                 <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
             </div>
@@ -600,7 +616,7 @@
         </div>
 
         <div class="max-w-3xl mx-auto px-6" data-aos="fade-up">
-            <p class="font-mono text-primary mb-6 text-glow">05. What's Next?</p>
+            <p class="font-mono text-primary mb-6 text-glow">06. What's Next?</p>
             <h2 class="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight">Get In Touch</h2>
             <p class="text-slate-400 mb-12 text-lg leading-relaxed">
                 I'm currently open to opportunities in <span class="text-white">Systems Engineering</span>, <span
