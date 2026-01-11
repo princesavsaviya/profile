@@ -631,20 +631,28 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-surfaceHighlight border border-slate-700 rounded-xl overflow-hidden group shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-neon-strong hover:z-50 relative"
+                <!-- The Breakout Interaction Model -->
+                <div class="relative bg-surfaceHighlight border border-slate-700 rounded-xl p-0 group"
                     data-aos="zoom-in">
-                    <div class="aspect-video bg-black flex items-center justify-center relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60 z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
-                        </div>
+
+                    <!-- Video Container: Pops out OVER the text on hover -->
+                    <div
+                        class="relative z-10 transition-all duration-300 ease-out origin-top-left group-hover:scale-125 group-hover:shadow-neon-strong group-hover:z-50 rounded-t-xl group-hover:rounded-xl overflow-hidden aspect-video bg-black">
                         <video src="./animation.mp4"
                             poster="https://upload.wikimedia.org/wikipedia/commons/e/ec/Karman_vortex_street.jpg"
                             autoplay loop muted playsinline
-                            class="w-full h-full object-cover object-left opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                            Your browser does not support the video tag. Please convert .avi to .mp4.
+                            class="w-full h-full object-cover object-left opacity-80 group-hover:opacity-100 transition-all">
                         </video>
+
+                        <!-- Optional Badge -->
+                        <div
+                            class="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded backdrop-blur-sm opacity-100 group-hover:opacity-0 transition-opacity">
+                            Hover to Zoom
+                        </div>
                     </div>
-                    <div class="p-6">
+
+                    <!-- Text Content: Stays anchored behind -->
+                    <div class="p-6 relative z-0">
                         <h4 class="text-xl font-bold text-white mb-2">FSI Turek-Hron Benchmark</h4>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             Visualizing the <span class="text-primary">ALE mesh motion</span>. The solid flag deforms
