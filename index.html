@@ -233,78 +233,94 @@
                 <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up">
-
-                <!-- Languages -->
-                <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
-                    <div class="mb-4 text-primary text-2xl"><i class="fas fa-code"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4">Languages</h3>
-                    <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
-                        <span class="hover:text-white transition-colors">C++</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">Python</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">CUDA</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">Rust</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">SQL</span>
-                    </div>
+            <!-- Tech Grid System -->
+            <div class="border border-slate-700 bg-surfaceHighlight/20 rounded-xl overflow-hidden shadow-glass"
+                data-aos="fade-up">
+                <!-- Header Row (Desktop) -->
+                <div
+                    class="hidden lg:grid grid-cols-4 bg-surfaceHighlight/50 border-b border-slate-700 p-4 font-mono font-bold text-primary text-xs tracking-widest">
+                    <div class="text-center">LANGUAGES</div>
+                    <div class="text-center">HPC & ML</div>
+                    <div class="text-center">MLOPS & CLOUD</div>
+                    <div class="text-center">DATA & SEARCH</div>
                 </div>
 
-                <!-- HPC & ML -->
-                <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
-                    <div class="mb-4 text-accent text-2xl"><i class="fas fa-brain"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4">HPC & ML</h3>
-                    <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
-                        <span class="hover:text-white transition-colors">PyTorch</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">TensorFlow</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">MPI</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">PETSc</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">Hugging Face</span>
-                    </div>
-                </div>
+                <!-- Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-slate-700/50">
 
-                <!-- Infrastructure -->
-                <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
-                    <div class="mb-4 text-blue-400 text-2xl"><i class="fas fa-server"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4">MLOps & Cloud</h3>
-                    <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
-                        <span class="hover:text-white transition-colors">Docker</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">Kubernetes</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">AWS</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">GitHub Actions</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">Optuna</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">MLflow</span>
+                    <!-- Languages -->
+                    <div class="p-6 hover:bg-white/5 transition-colors group">
+                        <div class="lg:hidden font-bold text-primary mb-3 text-xs tracking-widest">LANGUAGES</div>
+                        <ul class="space-y-3 text-sm font-mono text-slate-400">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-primary rounded-full shadow-neon"></span>
+                                <span class="text-white font-bold">Python</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-primary rounded-full shadow-neon"></span>
+                                <span class="text-white font-bold">C++</span>
+                            </li>
+                            <li class="pl-4 hover:text-primary transition-colors cursor-default">CUDA</li>
+                            <li class="pl-4 hover:text-primary transition-colors cursor-default">Rust</li>
+                            <li class="pl-4 hover:text-primary transition-colors cursor-default">SQL</li>
+                        </ul>
                     </div>
-                </div>
 
-                <!-- Robotics -->
-                <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
-                    <div class="mb-4 text-purple-400 text-2xl"><i class="fas fa-search"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4">Data & Search</h3>
-                    <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
-                        <span class="hover:text-white transition-colors">Elasticsearch</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">Lucene</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">FAISS</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">Pandas</span>
-                        <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">NumPy</span>
+                    <!-- HPC & ML -->
+                    <div class="p-6 hover:bg-white/5 transition-colors group">
+                        <div class="lg:hidden font-bold text-accent mb-3 text-xs tracking-widest">HPC & ML</div>
+                        <ul class="space-y-3 text-sm font-mono text-slate-400">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                                <span class="text-white font-bold">PyTorch</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                                <span class="text-white font-bold">MPI / OpenMP</span>
+                            </li>
+                            <li class="pl-4 hover:text-accent transition-colors cursor-default">TensorFlow</li>
+                            <li class="pl-4 hover:text-accent transition-colors cursor-default">Hugging Face</li>
+                            <li class="pl-4 hover:text-accent transition-colors cursor-default">PETSc</li>
+                        </ul>
                     </div>
-                </div>
 
+                    <!-- MLOps -->
+                    <div class="p-6 hover:bg-white/5 transition-colors group">
+                        <div class="lg:hidden font-bold text-blue-400 mb-3 text-xs tracking-widest">MLOPS & CLOUD</div>
+                        <ul class="space-y-3 text-sm font-mono text-slate-400">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                                <span class="text-white font-bold">Kubernetes</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                                <span class="text-white font-bold">Docker</span>
+                            </li>
+                            <li class="pl-4 hover:text-blue-400 transition-colors cursor-default">AWS (EKS/EC2)</li>
+                            <li class="pl-4 hover:text-blue-400 transition-colors cursor-default">GitHub Actions</li>
+                            <li class="pl-4 hover:text-blue-400 transition-colors cursor-default">MLflow</li>
+                        </ul>
+                    </div>
+
+                    <!-- Data & Search -->
+                    <div class="p-6 hover:bg-white/5 transition-colors group">
+                        <div class="lg:hidden font-bold text-purple-400 mb-3 text-xs tracking-widest">DATA & SEARCH
+                        </div>
+                        <ul class="space-y-3 text-sm font-mono text-slate-400">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+                                <span class="text-white font-bold">Elasticsearch</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+                                <span class="text-white font-bold">FAISS</span>
+                            </li>
+                            <li class="pl-4 hover:text-purple-400 transition-colors cursor-default">Lucene</li>
+                            <li class="pl-4 hover:text-purple-400 transition-colors cursor-default">Pandas / NumPy</li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
@@ -621,7 +637,7 @@
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60 z-10 pointers-events-none">
                         </div>
-                        <video src="./animation.avi"
+                        <video src="./animation.mp4"
                             poster="https://upload.wikimedia.org/wikipedia/commons/e/ec/Karman_vortex_street.jpg"
                             autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
                             Your browser does not support the video tag. Please convert .avi to .mp4.
