@@ -211,19 +211,14 @@
             <div class="max-w-4xl mx-auto text-slate-400 leading-relaxed text-lg space-y-6" data-aos="fade-up"
                 data-aos-delay="100">
                 <p>
-                    I am an M.S. Computer Science candidate at <strong class="text-white">UC
-                        Riverside</strong> with a focus on engineering robust systems for machine learning.
+                    Machine Learning Engineer with strong expertise in <strong class="text-white">HPC and Distributed
+                        Systems</strong>,
+                    specializing in building low-latency inference pipelines and optimizing GPU kernels.
                 </p>
                 <p>
-                    My expertise lies in designing infrastructure that can handle the heavy compute demands of
-                    modern AI. From building <strong class="text-white">predictive autoscalers</strong> for
-                    Kubernetes to optimizing <strong class="text-white">distributed search engines</strong>, I enjoy
-                    the challenge of making systems faster, scalable, and more reliable.
-                </p>
-                <p>
-                    I also have deep roots in HPC, optimizing low-level <span
-                        class="font-mono text-primary text-sm bg-primary/10 px-1 rounded">CUDA</span> kernels and
-                    MPI communication to squeeze every bit of performance out of hardware for physics simulations.
+                    Experience deploying scalable AI solutions (Kubernetes/AWS) and accelerating deep learning workflows
+                    with <strong class="text-white">CUDA/C++</strong>.
+                    Proven track record of improving search precision by 25% and reducing system latency by 40%.
                 </p>
             </div>
         </div>
@@ -264,45 +259,49 @@
                     <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
                         <span class="hover:text-white transition-colors">PyTorch</span>
                         <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">MPI</span>
+                        <span class="hover:text-white transition-colors">TensorFlow</span>
                         <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">OpenMP</span>
+                        <span class="hover:text-white transition-colors">MPI</span>
                         <span class="text-slate-700">/</span>
                         <span class="hover:text-white transition-colors">PETSc</span>
                         <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">TensorRT</span>
+                        <span class="hover:text-white transition-colors">Hugging Face</span>
                     </div>
                 </div>
 
                 <!-- Infrastructure -->
                 <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
                     <div class="mb-4 text-blue-400 text-2xl"><i class="fas fa-server"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4">Infrastructure</h3>
+                    <h3 class="text-lg font-bold text-white mb-4">MLOps & Cloud</h3>
                     <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
-                        <span class="hover:text-white transition-colors">Kubernetes</span>
-                        <span class="text-slate-700">/</span>
                         <span class="hover:text-white transition-colors">Docker</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">Kubernetes</span>
                         <span class="text-slate-700">/</span>
                         <span class="hover:text-white transition-colors">AWS</span>
                         <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">Terraform</span>
+                        <span class="hover:text-white transition-colors">GitHub Actions</span>
                         <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">CI/CD</span>
+                        <span class="hover:text-white transition-colors">Optuna</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">MLflow</span>
                     </div>
                 </div>
 
                 <!-- Robotics -->
                 <div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors">
-                    <div class="mb-4 text-purple-400 text-2xl"><i class="fas fa-robot"></i></div>
-                    <h3 class="text-lg font-bold text-white mb-4">Robotics</h3>
+                    <div class="mb-4 text-purple-400 text-2xl"><i class="fas fa-search"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-4">Data & Search</h3>
                     <div class="flex flex-wrap gap-2 text-sm font-mono text-secondary">
-                        <span class="hover:text-white transition-colors">ROS 2</span>
+                        <span class="hover:text-white transition-colors">Elasticsearch</span>
                         <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">Gazebo</span>
+                        <span class="hover:text-white transition-colors">Lucene</span>
                         <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">PX4</span>
+                        <span class="hover:text-white transition-colors">FAISS</span>
                         <span class="text-slate-700">/</span>
-                        <span class="hover:text-white transition-colors">OpenCV</span>
+                        <span class="hover:text-white transition-colors">Pandas</span>
+                        <span class="text-slate-700">/</span>
+                        <span class="hover:text-white transition-colors">NumPy</span>
                     </div>
                 </div>
 
@@ -344,11 +343,15 @@
 
                     <ul
                         class="list-disc ml-4 text-slate-400 text-sm space-y-3 max-w-3xl marker:text-primary leading-relaxed">
-                        <li>Developed a modular <strong class="text-white">ALE-ready simulation framework</strong>
-                            integrating CFD and FEM solvers, validated against Turek-Hron benchmarks.</li>
-                        <li>Optimized PETSC/CUDA kernels with <strong class="text-white">GPU-aware MPI</strong>,
-                            reducing memory bottlenecks and doubling multi-GPU throughput.</li>
-                        <li>Prototyping physics-informed ML predictors (Hamiltonian NNs) to accelerate FSI coupling
+                        <li>Built a modular <strong class="text-white">simulation framework</strong> integrating CFD and
+                            FEM solvers, validated against Turek-Hron benchmarks for high-fidelity stability.</li>
+                        <li>Optimized custom Deep Learning primitives and CUDA kernels using <strong
+                                class="text-white">GPU-aware MPI</strong>, reducing memory-transfer bottlenecks and
+                            improving multi-GPU training throughput by 2×.</li>
+                        <li>Developed a parameterized benchmark generator with automated regression tests, reducing
+                            setup time for new simulation cases by 80%.</li>
+                        <li>Prototyping Physics-Informed ML predictors (Hamiltonian Neural Networks) to reduce
+                            fixed-point iterations; designing feature sets and data pipelines to accelerate model
                             convergence.</li>
                     </ul>
                 </div>
@@ -374,12 +377,13 @@
 
                     <ul
                         class="list-disc ml-4 text-slate-400 text-sm space-y-3 max-w-3xl marker:text-slate-600 group-hover:marker:text-primary transition-colors leading-relaxed">
-                        <li>Engineered a physics-informed ML framework combining PDE aging models with ensemble
-                            regressors, cutting MSE by <strong class="text-white">98%</strong>.</li>
-                        <li>Automated feature engineering on 200k+ battery records using <strong
-                                class="text-white">Optuna</strong>, reducing experiment turnaround by 30%.</li>
-                        <li>Published results in <em class="text-primary not-italic">Journal of Power Sources</em> (IF
-                            ~7.9).</li>
+                        <li>Built a physics-informed ML framework combining PDE ageing models with ensemble regressors
+                            (SVR, RF, GBR), cutting MSE 98% and RMSE 86% vs. data-only baseline.</li>
+                        <li>Ingested 200,000+ battery-cycle records in Python; automated feature engineering and <strong
+                                class="text-white">Optuna</strong> hyperparameter tuning, reducing experiment turnaround
+                            30%.</li>
+                        <li>Published results in <em class="text-primary not-italic">Journal of Power Sources</em>, Vol.
+                            627, 2025 (IF ≈ 7.9).</li>
                     </ul>
                 </div>
 
@@ -429,8 +433,10 @@
                     </div>
 
                     <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
-                        LSTM-driven custom controller forecasting load 5-min ahead. Reduced over-provisioning by 18%
-                        while maintaining 99.9% SLA.
+                        Designed a time-series forecasting service using LSTMs to predict cluster load, automating
+                        replica scaling and cutting cloud over-provisioning costs by 18%.
+                        Implemented MLOps best practices with automated model retraining triggers and CI/CD deployment
+                        to AWS EKS; sustained 99.9% SLA under 4× load spikes.
                     </p>
                     <div class="flex flex-wrap gap-2 text-xs font-mono text-primary/80 pt-4 border-t border-white/5">
                         <span class="bg-surfaceHighlight px-2 py-1 rounded">K8s</span>
@@ -467,13 +473,16 @@
                     </div>
 
                     <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
-                        Hybrid search engine merging BM25 with BERT+FAISS vectors. Served 150k docs via async REST API
-                        with P95 latency &lt;200ms.
+                        Architected a hybrid retrieval system merging BM25 keyword search with BERT+FAISS vector
+                        embeddings, improving top-3 precision 25% on 150k medical documents.
+                        Engineered an asynchronous inference pipeline using Django and REST APIs, optimizing query
+                        latency to &lt;200 ms (P95).
                     </p>
                     <div class="flex flex-wrap gap-2 text-xs font-mono text-primary/80 pt-4 border-t border-white/5">
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded">Python</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded">Elasticsearch</span>
+                        <span class="bg-surfaceHighlight px-2 py-1 rounded">Django</span>
                         <span class="bg-surfaceHighlight px-2 py-1 rounded">BERT</span>
+                        <span class="bg-surfaceHighlight px-2 py-1 rounded">FAISS</span>
+                        <span class="bg-surfaceHighlight px-2 py-1 rounded">AWS</span>
                     </div>
                 </div>
 
@@ -494,8 +503,10 @@
                     <h3 class="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">Risk
                         Analytics Microservice</h3>
                     <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
-                        Real-time analytics service ingesting multi-asset data (equities, bonds). Optimized vectorized
-                        backtests to ~85ms and deployed via CI/CD.
+                        Designed real-time analytics service ingesting multi-asset data with vectorized pipelines;
+                        delivered metrics in &lt;150 ms.
+                        Automated deployment with GitHub Actions → AWS ECR → EC2; maintained 99.9% uptime with
+                        Prometheus monitoring.
                     </p>
                     <div class="flex flex-wrap gap-2 text-xs font-mono text-primary/80 pt-4 border-t border-white/5">
                         <span class="bg-surfaceHighlight px-2 py-1 rounded">FastAPI</span>
