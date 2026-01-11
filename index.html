@@ -631,15 +631,16 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-surfaceHighlight border border-slate-700 rounded-xl overflow-hidden group shadow-lg"
+                <div class="bg-surfaceHighlight border border-slate-700 rounded-xl overflow-hidden group shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-neon-strong hover:z-50 relative"
                     data-aos="zoom-in">
                     <div class="aspect-video bg-black flex items-center justify-center relative overflow-hidden">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60 z-10 pointers-events-none">
+                            class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60 z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
                         </div>
                         <video src="./animation.mp4"
                             poster="https://upload.wikimedia.org/wikipedia/commons/e/ec/Karman_vortex_street.jpg"
-                            autoplay loop muted playsinline class="w-full h-full object-cover object-left opacity-60">
+                            autoplay loop muted playsinline
+                            class="w-full h-full object-cover object-left opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                             Your browser does not support the video tag. Please convert .avi to .mp4.
                         </video>
                     </div>
