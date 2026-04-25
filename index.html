@@ -1,634 +1,560 @@
+</html>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince Savsaviya | Machine Learning Engineer</title>
+    <title>Prince Savsaviya | Software & ML Engineer</title>
+    <meta name="description" content="Prince Savsaviya-Software & ML Engineer, MS CS @ UC Riverside. Builder of TethrLink, Wildfire-Twin, Go load balancer; physics-informed ML researcher published in Journal of Power Sources.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="./favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        background: '#030712',
-                        surface: '#111827',
-                        surfaceHighlight: '#1f2937',
-                        primary: '#22d3ee',
-                        secondary: '#94a3b8',
-                        accent: '#10b981',
+                        bg:     '#f6f8fc',
+                        surf:   '#ffffff',
+                        surf2:  '#f1f5f9',
+                        surf3:  '#e2e8f0',
+                        sky:    '#0284c7',
+                        skyli: '#38bdf8',
+                        em:     '#059669',
+                        emli:   '#34d399',
+                        ink:    '#0f172a',
+                        ink2:   '#334155',
+                        muted:  '#64748b',
+                        faint:  '#94a3b8',
                     },
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    boxShadow: {
-                        'neon': '0 0 15px rgba(34, 211, 238, 0.4)',
-                        'neon-strong': '0 0 25px rgba(34, 211, 238, 0.6)',
-                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'blob': 'blob 7s infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        }
-                    }
+                    fontFamily: { sans:['Outfit','sans-serif'], mono:['JetBrains Mono','monospace'] },
                 }
             }
         }
     </script>
     <style>
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #030712; }
-        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 5px; border: 2px solid #030712; }
-        ::-webkit-scrollbar-thumb:hover { background: #22d3ee; }
+        ::-webkit-scrollbar{width:5px}
+        ::-webkit-scrollbar-track{background:#f1f5f9}
+        ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
+        ::-webkit-scrollbar-thumb:hover{background:#0284c7}
 
-        .glass-panel {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .text-glow { text-shadow: 0 0 15px rgba(34, 211, 238, 0.3); }
-        .gradient-text {
-            background: linear-gradient(to right, #22d3ee, #10b981);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        #sp{position:fixed;top:0;left:0;height:2px;z-index:9999;background:linear-gradient(90deg,#0284c7,#059669);transition:width .1s linear}
 
-        /* Project card status badge */
-        .badge-active { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
-        .badge-published { background: rgba(234,179,8,0.15); color: #eab308; border: 1px solid rgba(234,179,8,0.3); }
-        .badge-research { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
-        .badge-systems { background: rgba(34,211,238,0.15); color: #22d3ee; border: 1px solid rgba(34,211,238,0.3); }
+        .card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;transition:all .25s;box-shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04)}
+        .card:hover{box-shadow:0 8px 24px rgba(2,132,199,.1),0 2px 8px rgba(0,0,0,.06);border-color:#bae6fd;transform:translateY(-2px)}
+        .card-sky{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:1px solid #bae6fd}
 
-        /* Skill pill */
-        .skill-pill {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 4px 12px; border-radius: 20px;
-            font-size: 12px; font-family: 'JetBrains Mono', monospace;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            color: #94a3b8;
-            transition: all 0.2s;
-            margin: 3px;
-        }
-        .skill-pill:hover { border-color: rgba(34,211,238,0.4); color: #22d3ee; background: rgba(34,211,238,0.05); }
-        .skill-pill.highlight { border-color: rgba(34,211,238,0.35); color: #22d3ee; background: rgba(34,211,238,0.08); }
-        .skill-pill.accent-pill { border-color: rgba(16,185,129,0.35); color: #10b981; background: rgba(16,185,129,0.08); }
+        .gtext{background:linear-gradient(135deg,#0284c7,#059669);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+        .gtext-warm{background:linear-gradient(135deg,#7c3aed,#0284c7);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
-        /* Timeline dot pulse */
-        .dot-pulse { animation: dot-pulse 2s ease-in-out infinite; }
-        @keyframes dot-pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(34,211,238,0.4); }
-            50% { box-shadow: 0 0 0 6px rgba(34,211,238,0); }
-        }
+        .tag{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:11.5px;font-family:'JetBrains Mono',monospace;background:#f1f5f9;border:1px solid #e2e8f0;color:#475569;transition:all .18s;margin:3px}
+        .tag:hover,.tag.sky{background:#e0f2fe;border-color:#7dd3fc;color:#0284c7}
+        .tag.em{background:#d1fae5;border-color:#6ee7b7;color:#059669}
+        .tag.vi{background:#ede9fe;border-color:#c4b5fd;color:#7c3aed}
+        .tag.bl{background:#dbeafe;border-color:#93c5fd;color:#1d4ed8}
+        .tag.or{background:#ffedd5;border-color:#fdba74;color:#c2410c}
+        .tag.am{background:#fef3c7;border-color:#fde68a;color:#b45309}
 
-        /* Animated grid background */
-        .grid-bg {
-            background-image:
-                linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
+        .grid-bg{background-image:linear-gradient(rgba(2,132,199,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(2,132,199,.04) 1px,transparent 1px);background-size:48px 48px}
 
-        /* Project card architecture diagram */
-        .arch-diagram {
-            background: #0a0f1a;
-            border: 1px solid rgba(34,211,238,0.1);
-            border-radius: 8px;
-            padding: 12px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: #475569;
-            line-height: 1.8;
-            height: 128px;
-            overflow: hidden;
-            position: relative;
-        }
-        .arch-diagram .highlight { color: #22d3ee; }
-        .arch-diagram .accent { color: #10b981; }
-        .arch-diagram .warn { color: #eab308; }
-        .arch-diagram::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 40px;
-            background: linear-gradient(transparent, #0a0f1a);
-        }
+        @keyframes blob{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-60px) scale(1.12)}66%{transform:translate(-25px,25px) scale(.9)}}
+        .blob{animation:blob 9s ease-in-out infinite}
+        @keyframes dpulse{0%,100%{box-shadow:0 0 0 0 rgba(2,132,199,.4)}50%{box-shadow:0 0 0 7px rgba(2,132,199,0)}}
+        .dot-pulse{animation:dpulse 2.2s ease-in-out infinite}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+        .floating{animation:float 5s ease-in-out infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+        .cursor{animation:blink 1s step-end infinite}
 
-        /* Metric badge on diagram */
-        .metric-badge {
-            position: absolute; bottom: 8px; right: 8px;
-            background: rgba(0,0,0,0.8);
-            border: 1px solid rgba(34,211,238,0.3);
-            padding: 3px 8px; border-radius: 4px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px; color: #22d3ee;
-            z-index: 10;
+        .terminal{background:#0f172a;border:1px solid #1e293b;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.15)}
+        .tbar{background:#1e293b;padding:10px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid rgba(255,255,255,.05)}
+        .tdot{width:10px;height:10px;border-radius:50%}
+
+        .arch{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#94a3b8;line-height:1.9;height:124px;overflow:hidden;position:relative}
+        .arch .hl{color:#0284c7}.arch .ac{color:#059669}.arch .wn{color:#b45309}.arch .pu{color:#7c3aed}
+        .arch::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(transparent,#f8fafc)}
+        .arch-badge{position:absolute;bottom:7px;right:8px;background:#fff;border:1px solid #bae6fd;padding:2px 7px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#0284c7;z-index:10;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+
+        .badge-a{background:#d1fae5;color:#065f46;border:1px solid #6ee7b7}
+        .badge-p{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
+        .badge-r{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
+        .badge-s{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc}
+
+        .mc{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px 20px;text-align:center;transition:all .25s;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+        .mc:hover{border-color:#7dd3fc;box-shadow:0 4px 16px rgba(2,132,199,.1);transform:translateY(-2px)}
+
+        .sec-num{font-family:'JetBrains Mono',monospace;font-size:13px;color:#0284c7;opacity:.6;letter-spacing:.05em}
+        .nav-link{color:#64748b;font-size:13px;padding:6px 12px;border-radius:6px;transition:all .18s;font-family:'JetBrains Mono',monospace}
+        .nav-link:hover{color:#0284c7;background:#e0f2fe}
+        .nav-link.active{color:#0284c7}
+
+        .tl-line{border-left:2px solid #e2e8f0}
+
+        .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+
+        @media(prefers-reduced-motion:reduce){
+            .reveal{opacity:1;transform:none;transition:none}
+            .blob,.floating,.dot-pulse,.cursor{animation:none}
         }
     </style>
 </head>
+<body class="bg-bg text-ink font-sans antialiased selection:bg-sky/20 selection:text-sky overflow-x-hidden">
 
-<body class="bg-background text-slate-300 font-sans antialiased selection:bg-primary selection:text-black overflow-x-hidden">
+<div id="sp" style="width:0%"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="absolute inset-0 bg-background/90 backdrop-blur border-b border-primary/30 shadow-[0_4px_20px_-10px_rgba(34,211,238,0.3)]"></div>
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
-            <a href="#" class="font-mono text-xl font-bold text-primary tracking-tighter hover:text-white transition-colors">&lt;PS /&gt;</a>
-            <div class="hidden md:flex items-center space-x-8 font-mono text-sm">
-                <a href="#about" class="text-slate-400 hover:text-primary transition-all hover:bg-primary/5 px-3 py-1 rounded">About</a>
-                <a href="#experience" class="text-slate-400 hover:text-primary transition-all hover:bg-primary/5 px-3 py-1 rounded">Experience</a>
-                <a href="#projects" class="text-slate-400 hover:text-primary transition-all hover:bg-primary/5 px-3 py-1 rounded">Projects</a>
-                <a href="#simulations" class="text-slate-400 hover:text-primary transition-all hover:bg-primary/5 px-3 py-1 rounded">Gallery</a>
-                <a href="#contact" class="px-5 py-2.5 bg-primary/10 border border-primary/50 text-primary rounded hover:bg-primary/20 transition-all hover:shadow-neon">Contact</a>
-            </div>
-            <button class="md:hidden text-2xl text-primary focus:outline-none" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+<!-- NAV -->
+<nav id="navbar" class="fixed w-full z-50">
+    <div class="absolute inset-0 bg-bg/90 backdrop-blur-xl border-b border-surf3"></div>
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
+        <a href="#" class="font-mono text-lg font-bold text-sky tracking-tighter hover:text-ink transition-colors">
+            <span class="text-faint">&lt;</span>PS<span class="text-faint">/&gt;</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+            <a href="#about"       class="nav-link">About</a>
+            <a href="#tethrlink"   class="nav-link">TethrLink</a>
+            <a href="#skills"      class="nav-link">Skills</a>
+            <a href="#experience"  class="nav-link">Experience</a>
+            <a href="#projects"    class="nav-link">Projects</a>
+            <a href="#simulations" class="nav-link">Gallery</a>
+            <a href="#contact" class="ml-3 px-5 py-2 bg-sky text-white font-mono text-xs rounded-lg hover:bg-sky/90 transition-all shadow-sm">Contact</a>
         </div>
-        <div class="md:hidden hidden bg-background/95 backdrop-blur-xl border-b border-white/5 absolute w-full left-0 top-full" id="mobile-menu">
-            <div class="flex flex-col p-6 space-y-4 font-mono text-sm">
-                <a href="#about" class="text-slate-400 hover:text-primary transition-colors block">About</a>
-                <a href="#experience" class="text-slate-400 hover:text-primary transition-colors block">Experience</a>
-                <a href="#projects" class="text-slate-400 hover:text-primary transition-colors block">Projects</a>
-                <a href="#simulations" class="text-slate-400 hover:text-primary transition-colors block">Gallery</a>
-                <a href="#contact" class="text-primary border border-primary/50 text-center py-3 rounded-lg hover:bg-primary/10 transition-all block">Contact</a>
-            </div>
+        <button id="mob-btn" class="md:hidden text-xl text-sky focus-visible:outline-none" aria-label="Menu">
+            <svg id="ic-bars" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="ic-x" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+    </div>
+    <div id="mob-menu" class="md:hidden hidden bg-surf/95 backdrop-blur-xl border-b border-surf3 absolute w-full left-0 top-full">
+        <div class="flex flex-col px-6 py-5 space-y-1 font-mono text-sm">
+            <a href="#about"       class="nav-link py-3 border-b border-surf3">About</a>
+            <a href="#tethrlink"   class="nav-link py-3 border-b border-surf3">TethrLink</a>
+            <a href="#skills"      class="nav-link py-3 border-b border-surf3">Skills</a>
+            <a href="#experience"  class="nav-link py-3 border-b border-surf3">Experience</a>
+            <a href="#projects"    class="nav-link py-3 border-b border-surf3">Projects</a>
+            <a href="#simulations" class="nav-link py-3 border-b border-surf3">Gallery</a>
+            <a href="#contact" class="mt-3 text-center px-5 py-3 bg-sky text-white rounded-lg hover:bg-sky/90 transition-all block font-mono text-sm">Contact</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden grid-bg">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
-        <div class="absolute top-20 right-10 w-72 h-72 bg-accent/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob" style="animation-delay:2s"></div>
-        <div class="absolute -bottom-32 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob" style="animation-delay:4s"></div>
+<!-- HERO -->
+<section class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden grid-bg">
+    <div class="absolute top-16 left-8 w-96 h-96 bg-sky/10 rounded-full filter blur-3xl opacity-60 blob"></div>
+    <div class="absolute top-24 right-8 w-80 h-80 bg-em/10 rounded-full filter blur-3xl opacity-60 blob" style="animation-delay:3s"></div>
+    <div class="absolute -bottom-16 left-1/3 w-96 h-96 bg-violet-200/30 rounded-full filter blur-3xl opacity-50 blob" style="animation-delay:6s"></div>
 
-        <div class="max-w-5xl mx-auto px-6 text-center relative z-10" data-aos="fade-up" data-aos-duration="1000">
-            <span class="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/30 text-primary font-mono text-sm mb-6">
-                Machine Learning Engineer · MS CS @ UC Riverside '26
-            </span>
-            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight leading-tight">
-                Prince <span class="gradient-text">Savsaviya</span>
-            </h1>
-            <h2 class="text-xl md:text-2xl font-medium text-slate-400 mb-4 max-w-3xl mx-auto">
-                Physics-Informed ML · Production Inference Systems · Real-Time Streaming
-            </h2>
-            <p class="max-w-2xl mx-auto text-secondary mb-4 text-base leading-relaxed">
-                I build ML systems that go from research to production — from peer-reviewed physics-informed models
-                to low-latency RAG pipelines, real-time Kafka streaming infrastructure, and cloud-native MLOps on AWS.
-            </p>
-            <!-- Publication callout -->
-            <a href="https://doi.org/10.1016/j.jpowsour.2024.235771" target="_blank"
-               class="inline-flex items-center gap-2 text-xs font-mono text-yellow-400/80 bg-yellow-400/5 border border-yellow-400/20 px-4 py-2 rounded-full mb-10 hover:border-yellow-400/40 transition-all">
-                <i class="fas fa-book-open"></i>
-                Published · Journal of Power Sources · IF 7.9 · Vol. 627, 2025
+    <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+        <!-- Status badge -->
+        <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-em/8 border border-em/25 text-em font-mono text-xs mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-em animate-pulse"></span>
+            Software & ML Engineer · MS CS @ UC Riverside '26
+        </div>
+
+        <h1 class="text-6xl md:text-8xl font-bold text-ink mb-5 tracking-tight leading-tight">
+            Prince <span class="gtext">Savsaviya</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl font-medium text-muted mb-5 max-w-3xl mx-auto leading-snug">
+            Systems Programming · Physics-Informed ML · Production Infrastructure
+        </p>
+        <p class="max-w-2xl mx-auto text-muted/80 mb-4 text-base leading-relaxed">
+            I build software end-to-end; from open-source desktop streaming tools and Layer-7 load balancers
+            to physics-informed ML models, geospatial real-time pipelines, and FSI simulation frameworks.
+        </p>
+
+        <!-- Publication callout -->
+        <a href="https://doi.org/10.1016/j.jpowsour.2024.235771" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 text-xs font-mono text-amber-700 bg-amber-50 border border-amber-200 px-4 py-2 rounded-full mb-10 hover:border-amber-400 hover:bg-amber-100 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            Published · Journal of Power Sources · IF ~8.1 · Vol. 627, 2025
+        </a>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#tethrlink" class="px-8 py-4 bg-sky text-white font-mono rounded-lg hover:bg-sky/90 transition-all flex items-center justify-center gap-3 group hover:-translate-y-0.5 font-semibold text-sm shadow-md shadow-sky/20">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="group-hover:scale-110 transition-transform"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                See TethrLink
             </a>
-
-            <div class="flex flex-col sm:flex-row gap-5 justify-center">
-                <a href="./Prince_Savsaviya_Resume.pdf" target="_blank"
-                   class="px-8 py-4 bg-primary/10 border border-primary text-primary font-mono rounded-lg hover:bg-primary/20 transition-all hover:shadow-neon flex items-center justify-center gap-3 group hover:-translate-y-1">
-                    <i class="fas fa-file-pdf text-xl group-hover:scale-110 transition-transform"></i>
-                    <span class="font-bold">Download Resume</span>
-                </a>
-                <a href="#contact"
-                   class="px-8 py-4 bg-transparent border border-white/20 text-slate-300 font-mono rounded-lg hover:border-primary/50 hover:text-primary transition-all flex items-center justify-center gap-3 group hover:-translate-y-1">
-                    <i class="fas fa-envelope"></i>
-                    <span>Contact Me</span>
-                </a>
-            </div>
-            <div class="mt-12 animate-bounce text-slate-500"><i class="fas fa-chevron-down text-xl"></i></div>
+            <a href="./Prince_Savsaviya_SDE_Resume.pdf" target="_blank" class="px-8 py-4 bg-surf border border-surf3 text-muted font-mono rounded-lg hover:border-sky/50 hover:text-sky transition-all flex items-center justify-center gap-3 hover:-translate-y-0.5 text-sm shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-down-icon lucide-file-down"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+                Resume
+            </a>
+            <a href="#contact" class="px-8 py-4 bg-surf border border-surf3 text-muted font-mono rounded-lg hover:border-sky/50 hover:text-sky transition-all flex items-center justify-center gap-3 hover:-translate-y-0.5 text-sm shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Get In Touch
+            </a>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 relative">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center gap-4 mb-12" data-aos="fade-right">
-                <span class="font-mono text-primary text-2xl">01.</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">About Me</h2>
-                <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
-            </div>
-            <div class="max-w-4xl mx-auto text-slate-400 leading-relaxed text-lg space-y-6" data-aos="fade-up" data-aos-delay="100">
-                <p>
-                    I am an M.S. Computer Science candidate at <strong class="text-white">UC Riverside</strong> (March 2026),
-                    specializing in machine learning systems, scalable backend infrastructure, and applied AI.
-                    My research sits at the intersection of <strong class="text-white">physics-informed machine learning</strong>
-                    and production deployment — building systems that are both mathematically rigorous and operationally reliable.
-                </p>
-                <p>
-                    I have published peer-reviewed ML research in the
-                    <strong class="text-white">Journal of Power Sources</strong> (IF 7.9),
-                    built RAG search systems improving precision by <strong class="text-white">25%</strong> over 150k documents,
-                    and engineered cloud-native autoscalers sustaining <strong class="text-white">99.9% SLA</strong> under 4× load spikes.
-                    I care about the full stack: from loss functions to Kubernetes deployments.
-                </p>
+        <div class="mt-16 flex justify-center">
+            <div class="flex flex-col items-center gap-2 text-faint opacity-50">
+                <span class="font-mono text-xs">scroll</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="animate-bounce"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-surfaceHighlight/20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center gap-4 mb-12" data-aos="fade-right">
-                <span class="font-mono text-primary text-2xl">02.</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Technical Skills</h2>
-                <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-surf">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-12 reveal">
+            <span class="sec-num">01.</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-ink">About Me</h2>
+            <div class="h-px bg-surf3 flex-grow max-w-xs"></div>
+        </div>
+        <div class="grid md:grid-cols-5 gap-12 items-start">
+            <div class="md:col-span-3 text-muted leading-relaxed text-lg space-y-5 reveal rd1">
+                <p>I am an M.S. Computer Science Graduate from <strong class="text-ink">UC Riverside</strong> (GPA 3.59, March 2026) who builds software across the full stack,from <strong class="text-ink">open-source desktop streaming apps</strong> in Python and Kotlin to <strong class="text-ink">physics-informed ML models</strong>, FSI simulation frameworks, and systems-level tools in Go and C++.</p>
+                <p>My research sits at the intersection of numerical methods and applied ML. I engineered a modular <strong class="text-ink">Fluid-Structure Interaction framework</strong> validating 9 benchmarks with &lt;0.5% error, and published in the <strong class="text-ink">Journal of Power Sources</strong> (IF ~8.1) on physics-informed battery degradation prediction achieving <strong class="text-ink">98% MSE reduction</strong>.</p>
+                <p>I ship production-grade open-source tools <strong class="text-ink">TethrLink</strong> (up to 120 FPS USB screen streaming, dual-codec JPEG + H.264), <strong class="text-ink">Wildfire-Twin</strong> (Kafka + Spark geospatial pipeline over 11.5M building footprints, 91% P95 latency reduction), and a <strong class="text-ink">Layer-7 Go load balancer</strong> with a TypeScript control plane.</p>
             </div>
-
-            <div class="space-y-6" data-aos="fade-up">
-
-                <!-- Machine Learning -->
-                <div class="glass-panel rounded-xl p-6">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="w-2 h-2 rounded-full bg-primary shadow-neon"></span>
-                        <span class="font-mono text-sm font-bold text-primary tracking-widest">MACHINE LEARNING</span>
-                    </div>
-                    <div class="flex flex-wrap">
-                        <span class="skill-pill highlight">PyTorch</span>
-                        <span class="skill-pill highlight">TensorFlow</span>
-                        <span class="skill-pill highlight">Deep Learning</span>
-                        <span class="skill-pill highlight">LLMs (Hugging Face)</span>
-                        <span class="skill-pill highlight">Fine-Tuning</span>
-                        <span class="skill-pill highlight">RAG</span>
-                        <span class="skill-pill highlight">BERT / Transformers</span>
-                        <span class="skill-pill">Scikit-learn</span>
-                        <span class="skill-pill">Prompt Engineering</span>
-                        <span class="skill-pill">Physics-Informed ML</span>
-                        <span class="skill-pill">Time-Series Forecasting</span>
-                        <span class="skill-pill">Computer Vision</span>
-                        <span class="skill-pill">Model Evaluation</span>
-                        <span class="skill-pill">A/B Testing</span>
-                        <span class="skill-pill">Hyperparameter Tuning</span>
-                        <span class="skill-pill">Optuna</span>
-                    </div>
+            <div class="md:col-span-2 reveal rd2">
+                <div class="card rounded-2xl p-6 space-y-3.5" style="border-color:#e0f2fe">
+                    <p class="font-mono text-xs text-sky/50 mb-3">// snapshot</p>
+                    <div class="flex justify-between border-b border-surf3 pb-3"><span class="text-muted text-sm">Focus</span><span class="text-ink text-sm font-semibold">Software + ML Eng.</span></div>
+                    <div class="flex justify-between border-b border-surf3 pb-3"><span class="text-muted text-sm">Education</span><span class="text-ink text-sm font-semibold">MS CS · UCR '26 · 3.59</span></div>
+                    <div class="flex justify-between border-b border-surf3 pb-3"><span class="text-muted text-sm">Publication</span><span class="text-amber-600 text-sm font-semibold">JPS · IF ~8.1</span></div>
+                    <div class="flex justify-between border-b border-surf3 pb-3"><span class="text-muted text-sm">Open Source</span><span class="text-sky text-sm font-semibold">TethrLink (GPL v3)</span></div>
+                    <div class="flex justify-between border-b border-surf3 pb-3"><span class="text-muted text-sm">Languages</span><span class="text-ink text-sm font-semibold">Python, Go, Kotlin, C++</span></div>
+                    <div class="flex justify-between"><span class="text-muted text-sm">Status</span><span class="flex items-center gap-2 text-em text-sm font-semibold"><span class="w-1.5 h-1.5 bg-em rounded-full animate-pulse"></span>Open to roles</span></div>
                 </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Languages -->
-                    <div class="glass-panel rounded-xl p-6">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-2 h-2 rounded-full bg-accent"></span>
-                            <span class="font-mono text-sm font-bold text-accent tracking-widest">LANGUAGES</span>
-                        </div>
-                        <div class="flex flex-wrap">
-                            <span class="skill-pill accent-pill">Python</span>
-                            <span class="skill-pill accent-pill">C++</span>
-                            <span class="skill-pill accent-pill">Go</span>
-                            <span class="skill-pill accent-pill">CUDA</span>
-                            <span class="skill-pill">SQL</span>
-                            <span class="skill-pill">Bash</span>
-                            <span class="skill-pill">Java</span>
-                            <span class="skill-pill">C</span>
-                        </div>
-                    </div>
-
-                    <!-- MLOps & Cloud -->
-                    <div class="glass-panel rounded-xl p-6">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-                            <span class="font-mono text-sm font-bold text-blue-400 tracking-widest">MLOPS & CLOUD</span>
-                        </div>
-                        <div class="flex flex-wrap">
-                            <span class="skill-pill" style="border-color:rgba(96,165,250,0.3);color:#93c5fd;background:rgba(96,165,250,0.05)">AWS (EKS, EC2, S3)</span>
-                            <span class="skill-pill" style="border-color:rgba(96,165,250,0.3);color:#93c5fd;background:rgba(96,165,250,0.05)">Kubernetes</span>
-                            <span class="skill-pill" style="border-color:rgba(96,165,250,0.3);color:#93c5fd;background:rgba(96,165,250,0.05)">Docker</span>
-                            <span class="skill-pill" style="border-color:rgba(96,165,250,0.3);color:#93c5fd;background:rgba(96,165,250,0.05)">MLflow</span>
-                            <span class="skill-pill">GitHub Actions (CI/CD)</span>
-                            <span class="skill-pill">Prometheus</span>
-                            <span class="skill-pill">Model Monitoring</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Distributed Systems -->
-                    <div class="glass-panel rounded-xl p-6">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
-                            <span class="font-mono text-sm font-bold text-purple-400 tracking-widest">DISTRIBUTED SYSTEMS & DATABASES</span>
-                        </div>
-                        <div class="flex flex-wrap">
-                            <span class="skill-pill" style="border-color:rgba(192,132,252,0.3);color:#c4b5fd;background:rgba(192,132,252,0.05)">Kafka</span>
-                            <span class="skill-pill" style="border-color:rgba(192,132,252,0.3);color:#c4b5fd;background:rgba(192,132,252,0.05)">PySpark</span>
-                            <span class="skill-pill" style="border-color:rgba(192,132,252,0.3);color:#c4b5fd;background:rgba(192,132,252,0.05)">FAISS</span>
-                            <span class="skill-pill" style="border-color:rgba(192,132,252,0.3);color:#c4b5fd;background:rgba(192,132,252,0.05)">Elasticsearch</span>
-                            <span class="skill-pill">PostgreSQL</span>
-                            <span class="skill-pill">Hadoop</span>
-                            <span class="skill-pill">ETL Pipelines</span>
-                        </div>
-                    </div>
-
-                    <!-- Backend -->
-                    <div class="glass-panel rounded-xl p-6">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-2 h-2 rounded-full bg-orange-400"></span>
-                            <span class="font-mono text-sm font-bold text-orange-400 tracking-widest">BACKEND & APIS</span>
-                        </div>
-                        <div class="flex flex-wrap">
-                            <span class="skill-pill" style="border-color:rgba(251,146,60,0.3);color:#fdba74;background:rgba(251,146,60,0.05)">FastAPI</span>
-                            <span class="skill-pill" style="border-color:rgba(251,146,60,0.3);color:#fdba74;background:rgba(251,146,60,0.05)">Django</span>
-                            <span class="skill-pill">REST APIs</span>
-                            <span class="skill-pill">Microservices</span>
-                            <span class="skill-pill">Streamlit</span>
-                            <span class="skill-pill">MPI</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-24">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="flex items-center gap-4 mb-16" data-aos="fade-right">
-                <span class="font-mono text-primary text-2xl">03.</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Experience</h2>
-                <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
+<!-- TETHRLINK -->
+<section id="tethrlink" class="py-28 relative overflow-hidden bg-bg">
+    <div class="absolute top-1/4 left-0 w-96 h-96 bg-sky/6 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-0 w-80 h-80 bg-em/5 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="flex items-center gap-4 mb-4 reveal">
+            <span class="sec-num">02.</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-ink">Featured Product</h2>
+            <div class="h-px bg-surf3 flex-grow max-w-xs"></div>
+        </div>
+
+        <!-- Main card -->
+        <div class="bg-surf rounded-2xl overflow-hidden reveal rd1 border border-sky/20" style="box-shadow:0 4px 32px rgba(2,132,199,.08),0 1px 4px rgba(0,0,0,.05)">
+            <!-- Banner -->
+            <div class="bg-gradient-to-r from-sky/6 via-em/4 to-transparent border-b border-sky/10 px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-sky/10 border border-sky/30 flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#0284c7" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-ink tracking-tight">TethrLink</h3>
+                        <p class="text-muted text-xs font-mono">GPL v3 · Open Source · v1.0 Shipped</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 flex-wrap">
+                    <span class="badge-a text-xs font-mono px-3 py-1 rounded-full flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-em rounded-full animate-pulse"></span>Active
+                    </span>
+                    <a href="https://github.com/princesavsaviya/TethrLink" target="_blank" rel="noopener"
+                       class="flex items-center gap-2 px-4 py-1.5 bg-surf2 border border-surf3 text-ink2 text-xs font-mono rounded-lg hover:border-sky/40 hover:text-sky transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://princesavsaviya.github.io/TethrLink" target="_blank" rel="noopener"
+                       class="flex items-center gap-2 px-4 py-1.5 bg-sky text-white text-xs font-mono rounded-lg hover:bg-sky/90 transition-all shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Live Site
+                    </a>
+                </div>
             </div>
-            <div class="relative border-l border-slate-800 ml-3 md:ml-6 space-y-16">
 
-                <div class="relative pl-8 md:pl-12 group" data-aos="fade-up">
-                    <div class="absolute -left-[5px] top-2 w-3 h-3 rounded-full bg-primary dot-pulse"></div>
-                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4">
-                        <div class="flex items-center gap-3">
-                            <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-primary transition-colors">Graduate Researcher</h3>
-                            <a href="https://ucr.edu" target="_blank" class="text-slate-500 hover:text-white transition-colors"><i class="fas fa-external-link-alt text-sm"></i></a>
+            <!-- Body -->
+            <div class="p-8">
+                <div class="grid lg:grid-cols-2 gap-10 items-start">
+                    <!-- Left -->
+                    <div>
+                        <p class="text-2xl md:text-3xl font-bold text-ink leading-snug mb-3">
+                            Your tablet. Your second screen.<br>
+                            <span class="gtext">Zero Wi-Fi.</span>
+                        </p>
+                        <p class="text-muted leading-relaxed mb-6">
+                            TethrLink streams a virtual display from your Linux PC to an Android tablet over direct USB tethering.
+                            A <strong class="text-ink">GStreamer pipeline</strong> encodes frames via JPEG or H.264 over a private
+                            <span class="text-sky font-mono text-sm bg-sky/8 px-1.5 py-0.5 rounded">192.168.42.x</span> USB subnet.
+                            A full <strong class="text-ink">GTK4 + Libadwaita</strong> desktop app with 3-tab settings panel and system tray manages everything.
+                        </p>
+
+                        <!-- Metrics -->
+                        <div class="grid grid-cols-4 gap-2 mb-6">
+                            <div class="mc">
+                                <p class="text-xl font-bold gtext font-mono">120</p>
+                                <p class="text-muted text-xs mt-0.5">FPS</p>
+                            </div>
+                            <div class="mc">
+                                <p class="text-xl font-bold gtext font-mono">&lt;50</p>
+                                <p class="text-muted text-xs mt-0.5">ms e2e</p>
+                            </div>
+                            <div class="mc">
+                                <p class="text-xl font-bold gtext font-mono">~40</p>
+                                <p class="text-muted text-xs mt-0.5">Mbps USB</p>
+                            </div>
+                            <div class="mc">
+                                <p class="text-xl font-bold gtext font-mono">Dual</p>
+                                <p class="text-muted text-xs mt-0.5">codec</p>
+                            </div>
                         </div>
-                        <span class="font-mono text-xs text-primary/80 bg-primary/5 px-2 py-1 rounded border border-primary/20">May 2025 – March 2026</span>
+
+                        <!-- Features -->
+                        <div class="space-y-2.5">
+                            <div class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="text-em flex-shrink-0 mt-0.5" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-muted text-sm"><strong class="text-ink">Mutter ScreenCast D-Bus API</strong> : true virtual display on Wayland, configurable 720p / 1080p / 1440p</span></div>
+                            <div class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="text-em flex-shrink-0 mt-0.5" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-muted text-sm"><strong class="text-ink">Dual-codec</strong> : JPEG and H.264 via GStreamer; hot-reload FPS and quality without stream restart</span></div>
+                            <div class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="text-em flex-shrink-0 mt-0.5" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-muted text-sm"><strong class="text-ink">~3s UDP auto-discovery</strong> : no manual IP entry, no pairing codes</span></div>
+                            <div class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="text-em flex-shrink-0 mt-0.5" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-muted text-sm"><strong class="text-ink">Jetpack Compose</strong> Android client : zero-GC SurfaceView rendering, auto-reconnect, guided setup</span></div>
+                            <div class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="text-em flex-shrink-0 mt-0.5" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-muted text-sm">Up to <strong class="text-ink">120 FPS</strong> and <strong class="text-ink">&lt;50ms</strong> end-to-end latency over USB</span></div>
+                            <div class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="text-em flex-shrink-0 mt-0.5" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-muted text-sm">Installs as <strong class="text-ink">.deb</strong> or <strong class="text-ink">Snap</strong> package, one command setup</span></div>
+                        </div>
                     </div>
-                    <p class="font-mono text-sm text-secondary mb-4">University of California, Riverside</p>
-                    <ul class="list-disc ml-4 text-slate-400 text-sm space-y-3 max-w-3xl marker:text-primary leading-relaxed">
-                        <li>Built ML-ready data pipelines from high-fidelity multiphysics simulations for surrogate modeling and physics-informed learning at scale.</li>
-                        <li>Designed and evaluated <strong class="text-white">physics-informed ML models</strong> including Hamiltonian Neural Networks — reducing solver iterations by 80%.</li>
-                        <li>Engineered distributed experimentation workflows using <strong class="text-white">Python, Bash, and MPI</strong>, improving multi-node processing throughput by 2x.</li>
-                        <li>Developed automated benchmarking and regression-testing pipelines, cutting simulation setup time by <strong class="text-white">80%</strong>.</li>
-                    </ul>
+
+                    <!-- Right: terminal + stack -->
+                    <div class="space-y-4">
+                        <!-- Dark terminal on light bg -->
+                        <div class="terminal floating">
+                            <div class="tbar">
+                                <span class="tdot bg-red-500/70"></span>
+                                <span class="tdot bg-yellow-500/70"></span>
+                                <span class="tdot bg-green-500/70"></span>
+                                <span class="ml-3 text-slate-500 font-mono text-xs">tethrlink : GTK4 desktop app</span>
+                            </div>
+                            <div class="p-5 font-mono text-xs space-y-1.5">
+                                <p><span class="text-slate-600">$</span> <span class="text-slate-200">tethrlink</span></p>
+                                <p class="text-slate-700">──────────────────────────────────────</p>
+                                <p><span class="text-green-400">✓</span> <span class="text-slate-400">USB tethering</span> <span class="text-sky-400">192.168.42.1</span> <span class="text-slate-600">detected</span></p>
+                                <p><span class="text-green-400">✓</span> <span class="text-slate-400">Mutter ScreenCast</span> <span class="text-green-400">1920×1080 virtual display</span></p>
+                                <p><span class="text-green-400">✓</span> <span class="text-slate-400">GStreamer</span> <span class="text-sky-400">H.264 + JPEG</span> <span class="text-slate-600">ready</span></p>
+                                <p><span class="text-green-400">✓</span> <span class="text-slate-400">UDP broadcast</span> <span class="text-sky-400">:8765</span> <span class="text-slate-400">→ discovery on</span></p>
+                                <p class="text-slate-700">──────────────────────────────────────</p>
+                                <p><span class="text-sky-400">→</span> <span class="text-slate-200">Client connected</span> <span class="text-sky-400">192.168.42.64</span> <span class="text-slate-600">(~3s)</span></p>
+                                <p><span class="text-green-400">◉</span> <span class="text-slate-400">120 FPS · &lt;50ms · ~40 Mbps · H.264</span></p>
+                                <p class="flex items-center gap-1"><span class="text-green-400">█</span><span class="text-slate-600">streaming</span><span class="cursor text-sky-400">▋</span></p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="card rounded-xl p-4">
+                                <p class="font-mono text-xs text-muted mb-2.5">// linux server</p>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="tag sky">Python 3.12</span>
+                                    <span class="tag sky">GTK4 + Libadwaita</span>
+                                    <span class="tag sky">GStreamer 1.0</span>
+                                    <span class="tag sky">PipeWire</span>
+                                    <span class="tag sky">Mutter D-Bus</span>
+                                    <span class="tag sky">pystray</span>
+                                </div>
+                            </div>
+                            <div class="card rounded-xl p-4">
+                                <p class="font-mono text-xs text-muted mb-2.5">// android client</p>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="tag em">Kotlin 1.9</span>
+                                    <span class="tag em">Jetpack Compose</span>
+                                    <span class="tag em">MediaCodec</span>
+                                    <span class="tag em">Coroutines</span>
+                                    <span class="tag em">SurfaceView</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card rounded-xl p-4">
+                            <p class="font-mono text-xs text-muted mb-3">// compatibility</p>
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="text-sky" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span class="text-muted">GNOME Wayland · Python 3.10+</span></div>
+                                <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="text-em" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span class="text-muted">Android 5.0+ (API 21)</span></div>
+                                <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="text-sky" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg><span class="text-muted">Ubuntu 22.04+ / Fedora 37+</span></div>
+                                <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="text-em" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg><span class="text-muted">USB cable only, no Wi-Fi</span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="relative pl-8 md:pl-12 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute -left-[5px] top-2 w-3 h-3 rounded-full bg-slate-600 group-hover:bg-primary transition-all"></div>
-                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4">
-                        <div class="flex items-center gap-3">
-                            <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-primary transition-colors">Research Intern</h3>
-                        </div>
-                        <span class="font-mono text-xs text-slate-500 border border-slate-700 px-2 py-1 rounded">May 2023 – Dec 2023</span>
-                    </div>
-                    <p class="font-mono text-sm text-secondary mb-4">Adani University · During B.E.</p>
-                    <ul class="list-disc ml-4 text-slate-400 text-sm space-y-3 max-w-3xl marker:text-slate-600 group-hover:marker:text-primary transition-colors leading-relaxed">
-                        <li>Built a physics-informed ML framework combining PDE ageing models with ensemble regressors (SVR, RF, GBR), cutting <strong class="text-white">MSE by 98%</strong> and <strong class="text-white">RMSE by 86%</strong> vs. data-only baseline.</li>
-                        <li>Ingested 200,000+ battery-cycle records; automated feature engineering and Optuna hyperparameter tuning — reducing experiment turnaround by <strong class="text-white">30%</strong>.</li>
-                        <li>Published results in <a href="https://doi.org/10.1016/j.jpowsour.2024.235771" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors"><em class="not-italic">Journal of Power Sources</em></a>, Vol. 627, 2025 (IF 7.9).</li>
-                    </ul>
-                </div>
+                <!-- Roadmap -->
+                <div class="mt-8 pt-7 border-t border-surf3">
+                    <p class="font-mono text-xs text-muted mb-4">// milestone tracker</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-em/8 border border-em/20 text-em text-xs font-mono"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>MJPEG streaming</span>
+                        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-em/8 border border-em/20 text-em text-xs font-mono"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Mutter virtual display</span>
+                        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-em/8 border border-em/20 text-em text-xs font-mono"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>GTK4 + Libadwaita UI</span>
+                        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-em/8 border border-em/20 text-em text-xs font-mono"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>UDP auto-discovery</span>
+                        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-em/8 border border-em/20 text-em text-xs font-mono"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>.deb + Snap packages</span>
 
+                        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky/8 border border-sky/25 text-sky text-xs font-mono"><span class="w-1.5 h-1.5 border border-sky/60 rounded-full"></span>H.264 / GStreamer encode</span>
+                        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky/8 border border-sky/25 text-sky text-xs font-mono"><span class="w-1.5 h-1.5 border border-sky/60 rounded-full"></span>Touch input forwarding</span>
+                        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky/8 border border-sky/25 text-sky text-xs font-mono"><span class="w-1.5 h-1.5 border border-sky/60 rounded-full"></span>Audio forwarding</span>
+                        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surf2 border border-surf3 text-muted text-xs font-mono"><span class="w-1.5 h-1.5 border border-faint rounded-full"></span>Windows server</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 relative overflow-hidden">
-        <div class="absolute right-0 top-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10"></div>
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center gap-4 mb-16" data-aos="fade-right">
-                <span class="font-mono text-primary text-2xl">04.</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Featured Projects</h2>
-                <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
+<!-- SKILLS -->
+<section id="skills" class="py-20 bg-surf">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-12 reveal">
+            <span class="sec-num">03.</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-ink">Technical Skills</h2>
+            <div class="h-px bg-surf3 flex-grow max-w-xs"></div>
+        </div>
+        <div class="space-y-5">
+            <div class="card rounded-xl p-6 reveal" style="border-color:#bae6fd">
+                <div class="flex items-center gap-3 mb-4"><span class="w-2 h-2 rounded-full bg-sky"></span><span class="font-mono text-xs font-bold text-sky tracking-widest">MACHINE LEARNING & AI</span></div>
+                <div class="flex flex-wrap"><span class="tag sky">PyTorch</span><span class="tag sky">TensorFlow</span><span class="tag sky">Deep Learning</span><span class="tag sky">LLMs (Hugging Face)</span><span class="tag sky">Fine-Tuning</span><span class="tag sky">RAG</span><span class="tag sky">BERT / Transformers</span><span class="tag">Scikit-learn</span><span class="tag">Physics-Informed ML</span><span class="tag">Time-Series Forecasting</span><span class="tag">Computer Vision</span><span class="tag">NLP</span><span class="tag">Model Evaluation</span><span class="tag">Optuna</span></div>
             </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Project 1: RetrieveX -->
-                <div class="glass-panel p-6 rounded-xl group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full" data-aos="fade-up">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="p-3 bg-accent/10 rounded-lg text-accent text-xl group-hover:text-white group-hover:bg-accent transition-colors">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <span class="badge-active text-xs font-mono px-2 py-1 rounded-full">RAG · Search</span>
-                        </div>
-                        <a href="https://github.com/princesavsaviya/retrivex-webapp" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent transition-colors">RetrieveX — Hybrid Search Engine</h3>
-
-                    <!-- Architecture diagram instead of placeholder image -->
-                    <div class="arch-diagram mb-4 relative">
-                        <span class="highlight">Query</span> ──▶ <span class="accent">BM25 (Elasticsearch)</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──▶ <span class="highlight">BERT + FAISS</span> (dense)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="accent">Reciprocal Rank Fusion</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="warn">Django REST API</span> ──▶ response
-                        <div class="metric-badge">P95 &lt;200ms</div>
-                    </div>
-
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed flex-grow">
-                        Hybrid retrieval system combining BM25 keyword search with BERT+FAISS dense vector embeddings over 150,000 medical documents.
-                        Improves top-3 precision by <strong class="text-white">25%</strong> vs. sparse-only baseline. Django REST backend, async inference pipeline.
-                    </p>
-                    <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-white/5">
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Django</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">BERT</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">FAISS</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Elasticsearch</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">AWS</span>
-                    </div>
+            <div class="card rounded-xl p-6 reveal" style="border-color:#c4b5fd">
+                <div class="flex items-center gap-3 mb-4"><span class="w-2 h-2 rounded-full bg-violet-500"></span><span class="font-mono text-xs font-bold text-violet-600 tracking-widest">SYSTEMS & DESKTOP ENGINEERING</span></div>
+                <div class="flex flex-wrap"><span class="tag vi">Python</span><span class="tag vi">C++</span><span class="tag vi">Go</span><span class="tag vi">Java</span><span class="tag vi">Kotlin</span><span class="tag vi">GTK4 + Libadwaita</span><span class="tag vi">GStreamer 1.0</span><span class="tag vi">PipeWire</span><span class="tag vi">Wayland / D-Bus</span><span class="tag vi">Android SDK</span><span class="tag">MPI</span><span class="tag">CUDA</span><span class="tag">TCP/UDP networking</span><span class="tag">Linux</span></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <div class="card rounded-xl p-6 reveal">
+                    <div class="flex items-center gap-3 mb-4"><span class="w-2 h-2 rounded-full bg-blue-500"></span><span class="font-mono text-xs font-bold text-blue-600 tracking-widest">MLOPS & CLOUD</span></div>
+                    <div class="flex flex-wrap"><span class="tag bl">AWS (EKS, EC2, S3)</span><span class="tag bl">Kubernetes</span><span class="tag bl">Docker</span><span class="tag bl">MLflow</span><span class="tag">GitHub Actions</span><span class="tag">Prometheus</span><span class="tag">Hadoop</span></div>
                 </div>
-
-                <!-- Project 2: RAMS -->
-                <div class="glass-panel p-6 rounded-xl group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="p-3 bg-green-500/10 rounded-lg text-green-400 text-xl group-hover:text-white group-hover:bg-green-500 transition-colors">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <span class="badge-active text-xs font-mono px-2 py-1 rounded-full">Real-Time · Forex</span>
-                        </div>
-                        <a href="https://github.com/princesavsaviya/RAMS" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-green-400 transition-colors">RAMS — Forex Risk Analytics</h3>
-
-                    <div class="arch-diagram mb-4 relative">
-                        <span class="highlight">1s OHLC bars</span> ──▶ <span class="accent">FastAPI /ingest</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="warn">In-memory ring buffers</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                        &nbsp;&nbsp;&nbsp;<span class="accent">/metrics/{symbol}</span> · <span class="accent">/metrics/portfolio</span><br>
-                        &nbsp;&nbsp;&nbsp;<span class="highlight">Prometheus</span> scraper ──▶ monitoring
-                        <div class="metric-badge">&lt;150ms</div>
-                    </div>
-
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed flex-grow">
-                        High-performance microservice ingesting 1-second OHLC Forex bars via FastAPI.
-                        Vectorized in-memory ring buffer pipelines deliver per-symbol and portfolio risk metrics in <strong class="text-white">under 150ms</strong>.
-                        Prometheus scraping endpoint, 99.9% uptime, AWS deployment.
-                    </p>
-                    <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-white/5">
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">FastAPI</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Pandas</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Docker</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Prometheus</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">AWS</span>
-                    </div>
+                <div class="card rounded-xl p-6 reveal rd1">
+                    <div class="flex items-center gap-3 mb-4"><span class="w-2 h-2 rounded-full bg-orange-500"></span><span class="font-mono text-xs font-bold text-orange-600 tracking-widest">BACKEND, DATA & APIS</span></div>
+                    <div class="flex flex-wrap"><span class="tag or">RestAPI</span><span class="tag or">FastAPI</span><span class="tag or">Django</span><span class="tag or">TypeScript</span><span class="tag">Kafka</span><span class="tag">PySpark</span><span class="tag">Apache Sedona</span><span class="tag">FAISS</span><span class="tag">Elasticsearch</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">DuckDB</span></div>
                 </div>
-
-                <!-- Project 3: Wildfire-Twin (NEW) -->
-                <div class="glass-panel p-6 rounded-xl group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="p-3 bg-orange-500/10 rounded-lg text-orange-400 text-xl group-hover:text-white group-hover:bg-orange-500 transition-colors">
-                                <i class="fas fa-fire"></i>
-                            </div>
-                            <span class="badge-active text-xs font-mono px-2 py-1 rounded-full" style="background:rgba(249,115,22,0.15);color:#fb923c;border:1px solid rgba(249,115,22,0.3)">Active · UCR</span>
-                        </div>
-                        <a href="https://github.com/princesavsaviya/wild-fire-twin" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">Wildfire-Twin — Real-Time Digital Twin</h3>
-
-                    <div class="arch-diagram mb-4 relative">
-                        <span class="highlight">IoT sensors</span> ──▶ <span class="accent">Kafka (fire_events)</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                        &nbsp;&nbsp;&nbsp;<span class="warn">Spark Structured Streaming</span> <span class="text-slate-600">[Phase 1]</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                        &nbsp;&nbsp;&nbsp;<span class="accent">Sedona spatial join</span> ──▶ at-risk buildings<br>
-                        &nbsp;&nbsp;&nbsp;<span class="highlight">PyDeck live map</span> dashboard
-                        <div class="metric-badge" style="color:#fb923c;border-color:rgba(249,115,22,0.3)">Phase 0 ✅</div>
-                    </div>
-
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed flex-grow">
-                        Real-time wildfire monitoring digital twin built at UCR. Streams simulated IoT fire/temperature events through <strong class="text-white">Kafka</strong>,
-                        with Phase 1 adding Spark Structured Streaming + Apache Sedona spatial joins to identify at-risk buildings in real time.
-                    </p>
-                    <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-white/5">
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Kafka</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">PySpark</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Streamlit</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Docker</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Apache Sedona</span>
-                    </div>
-                </div>
-
-                <!-- Project 4: FSI Benchmark Framework / Thesis -->
-                <div class="glass-panel p-6 rounded-xl group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full" data-aos="fade-up">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="p-3 bg-primary/10 rounded-lg text-primary text-xl group-hover:text-white group-hover:bg-primary transition-colors">
-                                <i class="fas fa-water"></i>
-                            </div>
-                            <span class="badge-research text-xs font-mono px-2 py-1 rounded-full">MS Thesis · UCR</span>
-                        </div>
-                        <a href="https://github.com/princesavsaviya/Thesis" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">Fluid-Structure Interaction Framework</h3>
-
-                    <div class="arch-diagram mb-4 relative">
-                        <span class="highlight">Navier-Stokes</span> (ALE) ◀──▶ <span class="accent">Solid Solver</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
-                        &nbsp;&nbsp;<span class="warn">ALE mesh motion</span> ──▶ interface Δ<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">Dirichlet-Neumann</span> coupling<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adaptive time stepping
-                        <div class="metric-badge">FSI1 drag: 0.63% err</div>
-                    </div>
-
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed flex-grow">
-                        MS thesis at UC Riverside (Advisor: Dr. Tamar Shinar). Modular partitioned FSI benchmarking framework
-                        implementing incompressible Navier-Stokes, nonlinear solid mechanics, and ALE mesh motion.
-                        Validated against <strong class="text-white">Turek-Hron CFD1–CFD3, CSM1–CSM3, FSI1, and FSI2</strong> benchmarks —
-                        achieving &lt;0.1% drag error on refined meshes and stable periodic FSI2 oscillations.
-                    </p>
-                    <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-white/5">
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">FEniCSx</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">PETSc</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">MPI</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Gmsh</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Python</span>
-                    </div>
-                </div>
-
-                <!-- Project 5: Physics-Informed Battery AI -->
-                <div class="glass-panel p-6 rounded-xl group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="p-3 bg-yellow-500/10 rounded-lg text-yellow-400 text-xl group-hover:text-white group-hover:bg-yellow-500 transition-colors">
-                                <i class="fas fa-battery-half"></i>
-                            </div>
-                            <span class="badge-published text-xs font-mono px-2 py-1 rounded-full">Published · IF 7.9</span>
-                        </div>
-                        <a href="https://doi.org/10.1016/j.jpowsour.2024.235771" target="_blank" class="text-slate-400 hover:text-yellow-400 flex items-center gap-2 transition-colors">
-                            <span class="text-xs font-mono">DOI</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Physics-Informed Battery AI</h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed flex-grow">
-                        <strong class="text-slate-300">Problem:</strong> Batteries fail unpredictably, data-only models ignore degradation physics.<br><br>
-                        <strong class="text-slate-300">Solution:</strong> Hybrid framework combining PDE ageing models with ensemble regressors (SVR, RF, GBR) —
-                        reducing MSE by <strong class="text-white">98%</strong> and RMSE by <strong class="text-white">86%</strong> vs. data-only baselines over 200,000+ battery cycles.
-                    </p>
-                    <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-white/5">
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Python</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Scikit-learn</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Optuna</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Physics-ML</span>
-                    </div>
-                </div>
-
-                <!-- Project 6: TetherLink -->
-                <div class="glass-panel p-6 rounded-xl group hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="p-3 bg-purple-500/10 rounded-lg text-purple-400 text-xl group-hover:text-white group-hover:bg-purple-500 transition-colors">
-                                <i class="fas fa-plug"></i>
-                            </div>
-                            <span class="badge-systems text-xs font-mono px-2 py-1 rounded-full">Systems · C++</span>
-                        </div>
-                        <a href="https://github.com/princesavsaviya/TetherLink" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">TetherLink — USB Screen Streaming</h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed flex-grow">
-                        High-performance wired screen streaming system from Linux PC to Android over USB-C tethering.
-                        C++ server captures via X11, encodes JPEG frames with <strong class="text-white">libjpeg-turbo</strong>, streams over Asio TCP.
-                        Kotlin Android client receives and renders at real-time framerates. Roadmap includes H.264/H.265 hardware encoding and touch input.
-                    </p>
-                    <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-white/5">
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">C++</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">Kotlin</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">TCP/IP</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">libjpeg-turbo</span>
-                        <span class="bg-surfaceHighlight px-2 py-1 rounded text-primary/80">X11</span>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Simulation Gallery -->
-    <section id="simulations" class="py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center gap-4 mb-16" data-aos="fade-right">
-                <span class="font-mono text-primary text-2xl">05.</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Simulation Gallery</h2>
-                <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
+<!-- EXPERIENCE -->
+<section id="experience" class="py-24 bg-bg">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-16 reveal">
+            <span class="sec-num">04.</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-ink">Experience</h2>
+            <div class="h-px bg-surf3 flex-grow max-w-xs"></div>
+        </div>
+        <div class="relative tl-line ml-3 md:ml-6 space-y-16">
+            <div class="relative pl-8 md:pl-12 group reveal">
+                <div class="absolute -left-[5px] top-2 w-3 h-3 rounded-full bg-sky dot-pulse"></div>
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <h3 class="text-xl md:text-2xl font-bold text-ink group-hover:text-sky transition-colors">Graduate Researcher</h3>
+                        <a href="https://ucr.edu" target="_blank" rel="noopener" class="text-faint hover:text-ink transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+                    </div>
+                    <span class="font-mono text-xs text-sky bg-sky/8 px-2 py-1 rounded border border-sky/20">May 2025 – Mar 2026</span>
+                </div>
+                <p class="font-mono text-sm text-muted mb-4">University of California, Riverside</p>
+                <ul class="list-disc ml-4 text-muted text-sm space-y-2.5 max-w-3xl marker:text-sky leading-relaxed">
+                    <li>Engineered a modular fluid-structure interaction (FSI) simulation pipeline coupling Navier-Stokes fluid, nonlinear solid mechanics, and ALE mesh-motion solvers using <strong class="text-ink">FEniCSx, PETSc, and MPI</strong>.</li>
+                    <li>Validated <strong class="text-ink">9 standalone benchmarks</strong> (CFD1–3, CSM1–3) achieving <strong class="text-ink">&lt;0.5% error</strong> vs. published references on refined meshes across 6 refinement levels (L0–L5).</li>
+                    <li>Integrated strong Dirichlet–Neumann coupling with <strong class="text-ink">Aitken relaxation</strong> and adaptive time stepping, reproducing stable FSI1/FSI2 benchmark oscillatory behaviour.</li>
+                    <li>Automated a configuration-driven reproducibility framework with mesh refinement and checkpoint-based restart capability.</li>
+                </ul>
             </div>
+            <div class="relative pl-8 md:pl-12 group reveal rd1">
+                <div class="absolute -left-[5px] top-2 w-3 h-3 rounded-full bg-surf3 border-2 border-faint group-hover:bg-sky group-hover:border-sky transition-all"></div>
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-ink group-hover:text-sky transition-colors">Research Intern</h3>
+                    <span class="font-mono text-xs text-muted border border-surf3 bg-surf2 px-2 py-1 rounded">May 2023 – Dec 2023</span>
+                </div>
+                <p class="font-mono text-sm text-muted mb-4">Adani Institute of Infrastructure Engineering · During B.E.</p>
+                <ul class="list-disc ml-4 text-muted text-sm space-y-2.5 max-w-3xl marker:text-faint leading-relaxed">
+                    <li>Devised a hybrid PDE–ML model for Li-Ion battery degradation prediction, reducing MSE by <strong class="text-ink">98%</strong> (10.36→0.21), RMSE by <strong class="text-ink">86%</strong> (3.22→0.46), and MAE by <strong class="text-ink">65%</strong> (0.74→0.26) by combining physics-informed PDEs with Gaussian Process Regression.</li>
+                    <li>Forecasted State of Charge, State of Health, and Remaining Useful Life of NCA batteries under varying temperature and C-rate conditions using an ensemble of GPR, Random Forest, SVM, XGBoost, and Neural Networks.</li>
+                    <li>Published in <a href="https://doi.org/10.1016/j.jpowsour.2024.235771" target="_blank" rel="noopener" class="text-amber-600 hover:text-amber-700 transition-colors underline underline-offset-2 decoration-amber-400/50">Journal of Power Sources</a>, Vol. 627, 2025 (IF ~8.1).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-24 bg-surf">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-16 reveal">
+            <span class="sec-num">05.</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-ink">More Projects</h2>
+            <div class="h-px bg-surf3 flex-grow max-w-xs"></div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- RetrieveX -->
+            <div class="card p-6 rounded-xl flex flex-col h-full reveal" style="border-radius:16px">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3"><div class="p-2.5 bg-em/10 rounded-lg text-em"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><span class="badge-a text-xs font-mono px-2 py-1 rounded-full">RAG · Search</span></div>
+                    <a href="https://github.com/princesavsaviya/retrivex-webapp" target="_blank" rel="noopener" class="text-faint hover:text-ink transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                </div>
+                <h3 class="text-base font-bold text-ink mb-2">RetrieveX - Hybrid Search Engine</h3>
+                <div class="arch mb-4 relative"><span class="hl">Query</span> ──▶ <span class="ac">BM25 (Elasticsearch)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──▶ <span class="hl">BERT + FAISS</span> (dense)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ac">Reciprocal Rank Fusion</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wn">Django REST API</span> ──▶ response<div class="arch-badge">P95 &lt;200ms</div></div>
+                <p class="text-muted text-sm mb-4 leading-relaxed flex-grow">Hybrid BM25 + BERT/FAISS retrieval over 150k+ drug records. Sub-second semantic search via optimized FAISS index. 3 plug-and-play backends; Lucene, Elasticsearch, BERT/FAISS.</p>
+                <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-surf3"><span class="tag sky">Django</span><span class="tag sky">BERT</span><span class="tag sky">FAISS</span><span class="tag sky">Elasticsearch</span><span class="tag sky">PyTorch</span></div>
+            </div>
+
+            <!-- App Load Balancer -->
+            <div class="card p-6 rounded-xl flex flex-col h-full reveal rd1" style="border-radius:16px">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3"><div class="p-2.5 bg-violet-50 rounded-lg text-violet-500"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></div><span class="badge-r text-xs font-mono px-2 py-1 rounded-full">Systems · Go</span></div>
+                    <span class="text-muted text-xs font-mono">Apr – Jun 2025</span>
+                </div>
+                <h3 class="text-base font-bold text-ink mb-2">Application Load Balancer</h3>
+                <div class="arch mb-4 relative"><span class="hl">HTTP Request</span> ──▶ <span class="ac">Go net/http LB</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wn">RR / WRR / LeastConn</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>&nbsp;&nbsp;&nbsp;<span class="ac">Backend Pool</span> ──▶ health check<br>&nbsp;&nbsp;&nbsp;<span class="hl">Circuit-Breaker</span> + cooldown window<div class="arch-badge">Layer-7</div></div>
+                <p class="text-muted text-sm mb-4 leading-relaxed flex-grow">Layer-7 load balancer in Go implementing Round Robin, Weighted Round Robin, and LeastConnections. TypeScript control plane for real-time weight and circuit-breaker configuration. Cooldown mechanism prevents cascading failures.</p>
+                <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-surf3"><span class="tag vi">Go</span><span class="tag vi">TypeScript</span><span class="tag vi">Docker</span><span class="tag vi">net/http</span></div>
+            </div>
+
+            <!-- Wildfire-Twin -->
+            <div class="card p-6 rounded-xl flex flex-col h-full reveal rd2" style="border-radius:16px">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3"><div class="p-2.5 bg-orange-50 rounded-lg text-orange-500"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg></div><span class="text-xs font-mono px-2 py-1 rounded-full" style="background:#fff7ed;color:#c2410c;border:1px solid #fed7aa">Geospatial · Streaming</span></div>
+                    <a href="https://github.com/princesavsaviya/wild-fire-twin" target="_blank" rel="noopener" class="text-faint hover:text-ink transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                </div>
+                <h3 class="text-base font-bold text-ink mb-2">Wildfire-Twin - Digital Twin</h3>
+                <div class="arch mb-4 relative"><span class="hl">IoT sensors</span> ──▶ <span class="ac">Kafka (fire_events)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>&nbsp;&nbsp;&nbsp;<span class="wn">Spark Structured Streaming</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>&nbsp;&nbsp;&nbsp;<span class="ac">Sedona spatial join</span> ──▶ at-risk<br>&nbsp;&nbsp;&nbsp;<span class="hl">H3 (Res 7)</span> ──▶ <span class="pu">DuckDB</span> sink<div class="arch-badge" style="color:#c2410c;border-color:#fed7aa">P95 ↓91%</div></div>
+                <p class="text-muted text-sm mb-4 leading-relaxed flex-grow">Kafka + Spark + Sedona spatial joins over <strong class="text-ink">11.5M building footprints</strong>. Reduced P95 latency by <strong class="text-ink">91%</strong> (215s → 18.65s) via native Sedona Java expressions. H3 Resolution-7 indexing + DuckDB analytical sink stabilises dashboard at statewide zoom.</p>
+                <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-surf3"><span class="tag sky">Kafka</span><span class="tag sky">PySpark</span><span class="tag sky">Apache Sedona</span><span class="tag sky">DuckDB</span><span class="tag sky">H3</span><span class="tag sky">Streamlit</span></div>
+            </div>
+
+            <!-- FSI Thesis -->
+            <div class="card p-6 rounded-xl flex flex-col h-full reveal" style="border-radius:16px">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3"><div class="p-2.5 bg-sky/10 rounded-lg text-sky"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div><span class="badge-r text-xs font-mono px-2 py-1 rounded-full">MS Thesis · UCR</span></div>
+                    <a href="https://github.com/princesavsaviya/Thesis" target="_blank" rel="noopener" class="text-faint hover:text-ink transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                </div>
+                <h3 class="text-base font-bold text-ink mb-2">Fluid-Structure Interaction Framework</h3>
+                <div class="arch mb-4 relative"><span class="hl">Navier-Stokes</span> (ALE) ◀──▶ <span class="ac">Solid Solver</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>&nbsp;&nbsp;<span class="wn">ALE mesh motion</span> ──▶ interface Δ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl">Dirichlet-Neumann</span> + Aitken rlx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adaptive time stepping<div class="arch-badge">&lt;0.5% drag error</div></div>
+                <p class="text-muted text-sm mb-4 leading-relaxed flex-grow">Modular FSI framework validating <strong class="text-ink">9 benchmarks</strong> (CFD1–3, CSM1–3, FSI1–3) at <strong class="text-ink">&lt;0.5% error</strong> vs. Turek-Hron reference values across 6 mesh refinement levels.</p>
+                <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-surf3"><span class="tag sky">FEniCSx</span><span class="tag sky">PETSc</span><span class="tag sky">MPI</span><span class="tag sky">Gmsh</span></div>
+            </div>
+
+            <!-- Battery AI -->
+            <div class="card p-6 rounded-xl flex flex-col h-full reveal rd1" style="border-radius:16px">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3"><div class="p-2.5 bg-amber-50 rounded-lg text-amber-500"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div><span class="badge-p text-xs font-mono px-2 py-1 rounded-full">Published · IF ~8.1</span></div>
+                    <a href="https://doi.org/10.1016/j.jpowsour.2024.235771" target="_blank" rel="noopener" class="text-muted hover:text-amber-600 flex items-center gap-1 transition-colors text-xs font-mono">DOI<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+                </div>
+                <h3 class="text-base font-bold text-ink mb-2">Physics-Informed Battery AI</h3>
+                <p class="text-muted text-sm mb-4 leading-relaxed flex-grow">Hybrid PDE–ML model combining physics-informed PDEs with Gaussian Process Regression over 200k+ Li-Ion battery cycles. MSE <strong class="text-ink">↓98%</strong>, RMSE <strong class="text-ink">↓86%</strong>, MAE <strong class="text-ink">↓65%</strong> vs. data-only baseline. Published in JPS 2025.</p>
+                <div class="flex flex-wrap gap-1 text-xs font-mono pt-4 border-t border-surf3"><span class="tag sky">Python</span><span class="tag sky">Scikit-learn</span><span class="tag sky">Optuna</span><span class="tag sky">GPR</span><span class="tag sky">Physics-ML</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SIMULATION GALLERY -->
+<!-- Simulation Gallery -->
+<section id="simulations" class="py-24 bg-bg">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-16 reveal">
+            <span class="sec-num">06.</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-ink">Simulation Gallery</h2>
+            <div class="h-px bg-surf3 flex-grow max-w-xs"></div>
+        </div>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="relative bg-surfaceHighlight border border-slate-700 rounded-xl p-0 group" data-aos="zoom-in">
                     <div class="relative z-10 transition-all duration-500 ease-out origin-top-left group-hover:scale-125 group-hover:shadow-neon-strong group-hover:z-50 rounded-t-xl group-hover:rounded-xl overflow-hidden aspect-video bg-black">
@@ -641,72 +567,48 @@
                             Hover to Zoom
                         </div>
                     </div>
-                    <div class="p-6 relative z-0">
-                        <h4 class="text-xl font-bold text-white mb-2">FSI2 Turek-Hron Benchmark</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Computed oscillatory response of the <span class="text-primary">FSI2 benchmark</span> on the L0 mesh (t &gt; 18.5s).
-                            The elastic beam deforms under fluid pressure via <span class="text-primary">ALE mesh motion</span>,
-                            producing sustained periodic oscillations in beam displacement and hydrodynamic drag/lift forces —
-                            validated against Turek-Hron reference values.
-                        </p>
-                    </div>
+                    <div class="p-6">
+                    <h4 class="text-xl font-bold text-ink mb-2">FSI2 Turek-Hron Benchmark</h4>
+                    <p class="text-muted text-sm leading-relaxed">Computed oscillatory response of the <span class="text-sky">FSI2 benchmark</span>. ALE mesh motion produces sustained periodic oscillations validated against Turek-Hron reference values at &lt;0.5% drag error.</p>
+                </div>
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-32 text-center relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10"></div>
-        <div class="max-w-3xl mx-auto px-6" data-aos="fade-up">
-            <p class="font-mono text-primary mb-6 text-glow">06. What's Next?</p>
-            <h2 class="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight">Get In Touch</h2>
-            <p class="text-slate-400 mb-12 text-lg leading-relaxed">
-                Open to opportunities in <span class="text-white">Machine Learning Engineering</span>,
-                <span class="text-white">Applied AI</span>, <span class="text-white">ML Systems</span>, and
-                <span class="text-white">Scientific Computing</span>.
-                Whether you want to discuss my research or have a role in mind, my inbox is open.
-            </p>
-            <a href="mailto:princesavsaviya2023.learning@gmail.com"
-               class="inline-block px-10 py-4 bg-primary/10 border border-primary/50 text-primary font-mono rounded-lg hover:bg-primary/20 transition-all hover:shadow-neon hover:-translate-y-1 transform font-bold text-lg">
-                Say Hello
-            </a>
-            <div class="mt-16 flex justify-center gap-10">
-                <a href="https://github.com/princesavsaviya" target="_blank" class="text-slate-400 hover:text-white hover:-translate-y-1 transform transition-all text-3xl"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/prince-savsaviya" target="_blank" class="text-slate-400 hover:text-white hover:-translate-y-1 transform transition-all text-3xl"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:princesavsaviya2023.learning@gmail.com" class="text-slate-400 hover:text-white hover:-translate-y-1 transform transition-all text-3xl"><i class="fas fa-envelope"></i></a>
-            </div>
+
+<!-- CONTACT -->
+<section id="contact" class="py-32 text-center relative overflow-hidden bg-surf">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky/5 rounded-full blur-3xl -z-10"></div>
+    <div class="max-w-3xl mx-auto px-6 reveal">
+        <p class="font-mono text-sky text-sm mb-6 tracking-widest opacity-60">07. What's Next?</p>
+        <h2 class="text-5xl md:text-6xl font-bold text-ink mb-6 tracking-tight">Get In Touch</h2>
+        <p class="text-muted mb-12 text-lg leading-relaxed max-w-xl mx-auto">Open to roles in <strong class="text-ink">Software Engineering</strong>, <strong class="text-ink">ML Engineering</strong>, <strong class="text-ink">Applied AI</strong>, and <strong class="text-ink">Systems Development</strong>. Whether about research, TethrLink, or a role — my inbox is open.</p>
+        <a href="mailto:princesavsaviya2023.learning@gmail.com" class="inline-block px-10 py-4 bg-sky text-white font-mono rounded-lg hover:bg-sky/90 hover:-translate-y-1 transform transition-all font-bold text-base shadow-md shadow-sky/20">Say Hello</a>
+        <div class="mt-16 flex justify-center gap-10">
+            <a href="https://github.com/princesavsaviya" target="_blank" rel="noopener" aria-label="GitHub" class="text-faint hover:text-ink hover:-translate-y-1 transform transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a href="https://linkedin.com/in/prince-savsaviya" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-faint hover:text-sky hover:-translate-y-1 transform transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 23.2 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="mailto:princesavsaviya2023.learning@gmail.com" aria-label="Email" class="text-faint hover:text-ink hover:-translate-y-1 transform transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="py-8 bg-surface border-t border-slate-800 text-center">
-        <div class="font-mono text-xs text-slate-500">
-            <p class="mb-2">Designed & Built by Prince Savsaviya</p>
-            <p class="text-slate-600"><span class="hover:text-primary transition-colors cursor-default">v3.0</span> // Powered by Tailwind & Coffee</p>
-        </div>
-    </footer>
+<footer class="py-8 bg-bg border-t border-surf3 text-center">
+    <div class="font-mono text-xs text-faint space-y-1">
+        <p>Designed &amp; Built by Prince Savsaviya</p>
+        <p><span class="hover:text-sky transition-colors cursor-default">v4.2 light</span> // Tailwind · Pure HTML</p>
+    </div>
+</footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
-
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            });
-        });
-    </script>
+<script>
+    window.addEventListener('scroll',()=>{const t=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('sp').style.width=(window.scrollY/t*100)+'%'},{passive:true});
+    const obs=new IntersectionObserver((e)=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    const btn=document.getElementById('mob-btn'),menu=document.getElementById('mob-menu'),bars=document.getElementById('ic-bars'),x=document.getElementById('ic-x');
+    btn.addEventListener('click',()=>{const o=!menu.classList.contains('hidden');menu.classList.toggle('hidden',o);bars.classList.toggle('hidden',!o);x.classList.toggle('hidden',o)});
+    menu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{menu.classList.add('hidden');bars.classList.remove('hidden');x.classList.add('hidden')}));
+    const secs=document.querySelectorAll('section[id]'),links=document.querySelectorAll('nav .nav-link');
+    window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-120)c=s.id});links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+c))},{passive:true});
+</script>
 </body>
 </html>
