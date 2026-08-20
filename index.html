@@ -8,7 +8,7 @@
 <meta property="og:title" content="Prince Savsaviya — Software &amp; ML Engineer"/>
 <meta property="og:description" content="I work where simulation meets systems: an open-source second display for Linux, a physics-informed battery model published in the Journal of Power Sources, and an FSI framework validated under 0.5%."/>
 <meta property="og:type" content="website"/>
-<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)"/>
+<meta name="theme-color" content="#e9e8f4" media="(prefers-color-scheme: light)"/>
 <meta name="theme-color" content="#05050f" media="(prefers-color-scheme: dark)"/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -31,16 +31,19 @@
 /* Light is the base. Dark is declared twice — once for the system
    preference, once for an explicit choice — so the toggle wins both ways. */
 :root{
-  --bg:#fbfbfd;
-  --bg-2:#f4f4f9;
+  /* Not white. The ground is tinted the same indigo the dark theme is built
+     from, and sits a step below --panel so cards actually lift off it —
+     they were 1.03:1 against the page before, which is no edge at all. */
+  --bg:#e9e8f4;
+  --bg-2:#dedcee;
   --panel:#ffffff;
-  --panel-2:#f4f4f9;
-  --line:rgba(15,15,45,.11);
-  --line-lit:rgba(15,15,45,.22);
+  --panel-2:#f1f0fa;
+  --line:rgba(46,32,110,.15);
+  --line-lit:rgba(46,32,110,.30);
 
-  --text:#0d0d1c;
-  --text-2:#41415e;
-  --muted:#6b6b8a;
+  --text:#12112a;
+  --text-2:#3f3d61;
+  --muted:#55536f;
 
   --indigo:#4f46e5;
   --violet:#7c3aed;
@@ -48,12 +51,14 @@
   --green:#047857;
   --amber:#b45309;
 
-  --glow-1:rgba(79,70,229,.13);
-  --glow-2:rgba(124,58,237,.10);
-  --glow-3:rgba(8,145,178,.08);
-  --grid:rgba(15,15,45,.045);
-  --shadow:0 1px 2px rgba(15,15,45,.05),0 8px 26px rgba(15,15,45,.05);
-  --shadow-lift:0 2px 4px rgba(15,15,45,.06),0 18px 44px rgba(79,70,229,.14);
+  /* The glowfield and grid veil carry the dark theme. In light they were
+     tuned so far down that both layers rendered as nothing. */
+  --glow-1:rgba(79,70,229,.20);
+  --glow-2:rgba(124,58,237,.17);
+  --glow-3:rgba(8,145,178,.14);
+  --grid:rgba(46,32,110,.075);
+  --shadow:0 1px 2px rgba(28,20,80,.06),0 10px 30px rgba(28,20,80,.10);
+  --shadow-lift:0 2px 6px rgba(28,20,80,.09),0 20px 48px rgba(79,70,229,.20);
 
   --display:'Bricolage Grotesque',system-ui,sans-serif;
   --body:'IBM Plex Sans',system-ui,sans-serif;
@@ -74,7 +79,7 @@
 
     --text:#eceafb;
     --text-2:#b3afd6;
-    --muted:#817da4;
+    --muted:#9995bd;
 
     --indigo:#6366f1;
     --violet:#8b5cf6;
@@ -101,7 +106,7 @@
 
   --text:#eceafb;
   --text-2:#b3afd6;
-  --muted:#817da4;
+  --muted:#9995bd;
 
   --indigo:#6366f1;
   --violet:#8b5cf6;
@@ -124,7 +129,7 @@ body{
   color:var(--text);
   font-family:var(--body);
   font-size:16px;
-  line-height:1.65;
+  line-height:1.7;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
@@ -186,15 +191,18 @@ section.wrap{padding:100px 28px;scroll-margin-top:88px}
   border-bottom:1px solid transparent;transition:border-color .3s}
 .nav-shell.stuck{border-bottom-color:var(--line)}
 .nav{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--mono);
-  font-weight:500;font-size:14.5px;color:var(--text)}
+.brand{display:flex;align-items:baseline;gap:9px;text-decoration:none;color:var(--text)}
+/* The wordmark carried over from the previous site: angle brackets around
+   the initials, no badge. The brackets stay quiet so the letters read. */
 .brand .mk{
-  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none;
-  background:linear-gradient(140deg,var(--indigo),var(--violet));color:#fff;
-  font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:-.03em;
-  box-shadow:0 0 0 3px var(--glow-1);
+  font-family:var(--mono);font-weight:700;font-size:17px;letter-spacing:-.05em;
+  color:var(--indigo);flex:none;transition:color .2s;
 }
-@media(max-width:520px){.brand span{display:none}}
+.brand .mk i{font-style:normal;color:var(--muted)}
+.brand:hover .mk{color:var(--violet)}
+.brand .bname{font-family:var(--display);font-weight:700;font-size:15.5px;
+  letter-spacing:-.03em;white-space:nowrap}
+@media(max-width:420px){.brand .mk{font-size:15.5px}.brand .bname{font-size:14px}}
 .nav-links{list-style:none;display:flex;gap:21px;margin-left:auto;font-size:14px}
 .nav-links a{color:var(--text-2);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
@@ -235,8 +243,13 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.035em;line-height:1.06;font
 h1{font-size:clamp(37px,5.4vw,62px)}
 h2{font-size:clamp(28px,3.8vw,42px);margin-bottom:18px}
 h3{font-size:19px;letter-spacing:-.02em;line-height:1.25;margin-bottom:9px}
-.lede{font-size:17px;color:var(--text-2);max-width:62ch}
+.lede{font-size:17.5px;line-height:1.62;color:var(--text-2);max-width:62ch}
 p{color:var(--text-2)}
+/* Measure. In a full-width card at desktop these ran to 121 characters per
+   line — the return sweep is where the eye loses its place, and no amount of
+   size or contrast fixes a line that long. Matches the measure .lede was
+   already set to, so the whole page reads at one column width. */
+p,li{max-width:62ch}
 strong{color:var(--text);font-weight:600}
 code,.mono{font-family:var(--mono);font-size:.88em}
 code{background:var(--panel-2);border:1px solid var(--line);padding:2px 6px;border-radius:5px;color:var(--text)}
@@ -283,20 +296,23 @@ a.pill:hover{border-color:var(--violet);transform:translateY(-1px)}
 /* ═══════════════════════ HERO ═══════════════════════ */
 .hero{padding:64px 0 84px;display:grid;grid-template-columns:1.04fr .96fr;gap:52px;align-items:center}
 @media(max-width:940px){.hero{grid-template-columns:1fr;gap:40px;padding:44px 0 64px}}
-.hero-name{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:18px}
+/* The name is the headline. It was a 12px grey caption, which is the one
+   thing on a personal site that must not be easy to miss. */
+.hero-name{font-size:clamp(40px,6.4vw,72px);margin-bottom:13px}
+.hero-line{font-family:var(--display);font-weight:700;letter-spacing:-.03em;
+  line-height:1.2;font-size:clamp(20px,2.5vw,27px);color:var(--text-2)}
 .hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--indigo),var(--violet));
   -webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .lede{margin:22px 0 28px;font-size:17.5px}
+.hero .lede{margin:18px 0 28px;font-size:17.5px}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.hero-note{margin-top:22px;font-family:var(--mono);font-size:12.5px;color:var(--muted);line-height:1.9}
+.hero-note{margin-top:22px;font-family:var(--mono);font-size:13.5px;color:var(--muted);line-height:1.9}
 .hero-tag{margin-bottom:20px}
 
 .reel{border-radius:12px;overflow:hidden;background:#04040c;border:1px solid var(--line);position:relative}
 .reel video{display:block;width:100%;height:auto}
 .reel figcaption{padding:13px 15px;border-top:1px solid var(--line);background:var(--panel)}
 .reel figcaption b{display:block;font-family:var(--display);font-size:14.5px;letter-spacing:-.02em;color:var(--text);margin-bottom:2px}
-.reel figcaption span{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.6;display:block}
+.reel figcaption span{font-family:var(--mono);font-size:12.5px;color:var(--muted);line-height:1.7;display:block}
 
 /* A terminal is dark in every theme — this one keeps its own palette
    on purpose, and only borrows the border from the tokens. */
@@ -349,21 +365,29 @@ a.pill:hover{border-color:var(--violet);transform:translateY(-1px)}
   background:var(--panel-2);border-radius:0 10px 10px 0}
 .hard .lbl{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--indigo);margin-bottom:5px}
-.hard p{font-size:14.5px;line-height:1.62}
+.hard p{font-size:15.5px;line-height:1.72}
 
 /* ═══════════════════════ WORK CARDS ═══════════════════════ */
 .work{display:grid;gap:20px}
 .work-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px;flex-wrap:wrap}
 .work-head h3{margin-bottom:4px}
 .work-meta{font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.05em}
-.work-links{display:flex;gap:8px;flex-wrap:wrap}
+.work-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:2px}
 .mini{
-  display:inline-flex;align-items:center;gap:6px;text-decoration:none;
-  font-family:var(--mono);font-size:11.5px;padding:5px 10px;border-radius:8px;
-  border:1px solid var(--line);color:var(--text-2);background:var(--panel);transition:all .18s;
+  display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+  font-family:var(--mono);font-size:13px;font-weight:500;padding:8px 13px;border-radius:9px;
+  border:1px solid var(--line-lit);color:var(--text);background:var(--panel);
+  box-shadow:var(--shadow);transition:all .18s;
 }
-.mini:hover{border-color:var(--violet);color:var(--text);transform:translateY(-1px)}
-.mini svg{width:12px;height:12px;flex:none}
+.mini:hover{border-color:var(--violet);color:var(--violet);transform:translateY(-1px);
+  box-shadow:var(--shadow-lift)}
+.mini svg{width:14px;height:14px;flex:none}
+/* One filled link per project block, so the eye has somewhere to land. */
+.mini.key{
+  border-color:transparent;color:#fff;
+  background:linear-gradient(100deg,var(--indigo),var(--violet));
+}
+.mini.key:hover{color:#fff;border-color:transparent;box-shadow:0 8px 22px var(--glow-1)}
 .tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .tech span{font-family:var(--mono);font-size:11px;padding:4px 9px;border-radius:7px;
   background:var(--panel-2);border:1px solid var(--line);color:var(--muted)}
@@ -375,9 +399,9 @@ a.pill:hover{border-color:var(--violet);transform:translateY(-1px)}
 .tl-when{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.7;padding-top:3px}
 .tl-when b{display:block;color:var(--text-2);font-weight:500}
 .tl-body h3{margin-bottom:3px}
-.tl-org{font-size:14px;color:var(--muted);margin-bottom:14px}
+.tl-org{font-size:15px;color:var(--muted);margin-bottom:14px}
 .tl-body ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.tl-body li{position:relative;padding-left:19px;font-size:14.8px;line-height:1.65;color:var(--text-2)}
+.tl-body li{position:relative;padding-left:19px;font-size:15.5px;line-height:1.72;color:var(--text-2)}
 .tl-body li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;
   background:var(--line-lit)}
 
@@ -460,9 +484,9 @@ svg.viz-tall{display:none}
 
 <div class="nav-shell" id="nav-shell">
   <div class="nav">
-    <a class="brand" href="#top">
-      <span class="mk">PS</span>
-      <span>prince&nbsp;savsaviya</span>
+    <a class="brand" href="#top" aria-label="Prince Savsaviya — top of page">
+      <span class="mk" aria-hidden="true"><i>&lt;</i>PS<i>/&gt;</i></span>
+      <span class="bname">Prince&nbsp;Savsaviya</span>
     </a>
     <ul class="nav-links">
       <li><a href="#tethrlink">TethrLink</a></li>
@@ -490,11 +514,11 @@ svg.viz-tall{display:none}
 <section class="wrap" id="top">
   <div class="hero">
     <div>
-      <div class="hero-name">Prince Savsaviya</div>
       <div class="hero-tag">
         <a class="pill live" href="#tethrlink"><b></b> TethrLink 2.0.0 just shipped</a>
       </div>
-      <h1>I work where <em>simulation</em> meets <em>systems</em>.</h1>
+      <h1 class="hero-name">Prince <em>Savsaviya</em></h1>
+      <p class="hero-line">I work where simulation meets systems.</p>
       <p class="lede">
         Software &amp; ML engineer, M.S. Computer Science from UC&nbsp;Riverside. I ship systems
         software — an open-source second display for Linux, a Layer-7 load balancer in Go, a
@@ -666,17 +690,17 @@ svg.viz-tall{display:none}
     <div>
       <div class="card" style="margin-bottom:14px">
         <h3 style="font-size:17px">Install</h3>
-        <p style="font-size:14.5px;margin-bottom:12px">Snap is the short path — one command, no build.</p>
-        <div style="background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:var(--mono);font-size:13px;color:var(--text);overflow-x:auto">
+        <p style="font-size:15.5px;margin-bottom:12px">Snap is the short path — one command, no build.</p>
+        <div style="background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:var(--mono);font-size:13.5px;color:var(--text);overflow-x:auto">
           <span style="color:var(--muted)">$</span> sudo snap install tethrlink
         </div>
-        <p style="font-size:13.5px;margin-top:12px;color:var(--muted)">
+        <p style="font-size:14.5px;margin-top:12px;color:var(--muted)">
           Requires GNOME on Wayland for the virtual display and touch. X11 falls back to JPEG,
           video only — and the app says so rather than pretending otherwise.
         </p>
       </div>
       <div class="work-links">
-        <a class="mini" href="https://github.com/princesavsaviya/TethrLink" target="_blank" rel="noopener">
+        <a class="mini key" href="https://github.com/princesavsaviya/TethrLink" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
           Source
         </a>
@@ -901,7 +925,7 @@ svg.viz-tall{display:none}
       </figure>
       <div class="card">
         <h3 style="font-size:17px">Validation, not vibes</h3>
-        <p style="font-size:14.7px;margin-bottom:14px">
+        <p style="font-size:15.5px;margin-bottom:14px">
           The framework is checked against the Turek–Hron benchmarks that everyone in the field
           reports — the same quantities, the same meshes, published numbers to disagree with.
         </p>
