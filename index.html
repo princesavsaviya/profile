@@ -298,6 +298,25 @@ a.pill:hover{border-color:var(--violet);transform:translateY(-1px)}
 .reel figcaption b{display:block;font-family:var(--display);font-size:14.5px;letter-spacing:-.02em;color:var(--text);margin-bottom:2px}
 .reel figcaption span{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.6;display:block}
 
+/* A terminal is dark in every theme — this one keeps its own palette
+   on purpose, and only borrows the border from the tokens. */
+.term{background:#0a0a18;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.term-bar{background:#15152f;padding:10px 13px;display:flex;align-items:center;gap:7px;
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.term-dot{width:10px;height:10px;border-radius:50%;flex:none}
+.term-title{margin-left:8px;font-family:var(--mono);font-size:11.5px;color:#817da4}
+.term-body{padding:16px 17px;font-family:var(--mono);font-size:12.5px;line-height:1.95;
+  color:#b3afd6;overflow-x:auto}
+.term-body .p{color:#5b5880}
+.term-body .c{color:#eceafb}
+.term-body .ok{color:#4ade80}
+.term-body .hl{color:#22d3ee}
+.term-body .dim{color:#6f6c93}
+@media(max-width:520px){.term-body{font-size:11px;padding:14px 13px;line-height:1.85}}
+.term-cursor{display:inline-block;width:8px;height:13px;background:#4ade80;
+  vertical-align:-2px;margin-left:5px;animation:blink 1.1s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
 /* ═══════════════════════ STATS ═══════════════════════ */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:13px}
 .stat{padding:17px 18px;border:1px solid var(--line);border-radius:12px;background:var(--panel);box-shadow:var(--shadow)}
@@ -411,7 +430,7 @@ svg.viz-tall{display:none}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
-  .flow-d,.pill.live b{animation:none}
+  .flow-d,.pill.live b,.term-cursor{animation:none}
   #progress{transition:none}
 }
 </style>
@@ -477,9 +496,10 @@ svg.viz-tall{display:none}
       </div>
       <h1>I work where <em>simulation</em> meets <em>systems</em>.</h1>
       <p class="lede">
-        Software &amp; ML engineer, M.S. Computer Science from UC&nbsp;Riverside. I write PDE solvers
-        that have to agree with published benchmarks, and streaming systems that have to survive a
-        real cable — and I can tell you which decision in each one was the hard part.
+        Software &amp; ML engineer, M.S. Computer Science from UC&nbsp;Riverside. I ship systems
+        software — an open-source second display for Linux, a Layer-7 load balancer in Go, a
+        streaming geospatial pipeline — and the numerical solvers behind published research. I can
+        tell you which decision in each one was the hard part.
       </p>
       <div class="hero-btns">
         <a class="btn btn-solid" href="#tethrlink">
@@ -497,15 +517,27 @@ svg.viz-tall{display:none}
       </p>
     </div>
 
-    <!-- The stage is a result, not a decoration: my own FSI2 solution. -->
-    <figure class="reel">
-      <video src="./animation.mp4" autoplay loop muted playsinline
-             aria-label="Computed FSI2 benchmark: a flexible flap behind a cylinder oscillating in a vortex street."></video>
-      <figcaption>
-        <b>FSI2 · Turek–Hron benchmark</b>
-        <span>My own solution. ALE mesh motion, Dirichlet–Neumann coupling with Aitken relaxation. Under 0.5% drag error against the reference.</span>
-      </figcaption>
-    </figure>
+    <!-- The stage is the product actually starting up, not a decoration. -->
+    <div class="term" role="img" aria-label="Terminal session: installing TethrLink from Snap, then starting the server — it verifies a hardware encoder, detects the USB tether interface, creates a virtual display, and accepts a tablet connection with touch enabled.">
+      <div class="term-bar">
+        <span class="term-dot" style="background:#f87171"></span>
+        <span class="term-dot" style="background:#fbbf24"></span>
+        <span class="term-dot" style="background:#4ade80"></span>
+        <span class="term-title">tethrlink — 2.0.0</span>
+      </div>
+      <div class="term-body">
+        <div><span class="p">$</span> <span class="c">sudo snap install tethrlink</span></div>
+        <div class="dim">tethrlink 2.0.0 installed</div>
+        <div style="height:9px"></div>
+        <div><span class="p">$</span> <span class="c">tethrlink</span></div>
+        <div><span class="hl">▸</span> encoder    <span class="ok">nvh264enc</span> <span class="dim">verified @ 1730×1080 · 0.44s cached</span></div>
+        <div><span class="hl">▸</span> interface  <span class="ok">enp0s20u4</span> <span class="dim">usb-attached · subnet detected</span></div>
+        <div><span class="hl">▸</span> display    <span class="dim">virtual monitor via Mutter ScreenCast</span></div>
+        <div><span class="hl">▸</span> listening  <span class="dim">tcp/51137 · udp/8765 discovery</span></div>
+        <div style="height:9px"></div>
+        <div><span class="ok">✓</span> tablet connected <span class="dim">— touch input enabled</span><span class="term-cursor"></span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -859,10 +891,18 @@ svg.viz-tall{display:none}
     </div>
 
     <div>
+      <figure class="reel" style="margin-bottom:16px">
+        <video src="./animation.mp4" autoplay loop muted playsinline
+               aria-label="Computed FSI2 benchmark: a flexible flap behind a cylinder oscillating in a vortex street."></video>
+        <figcaption>
+          <b>FSI2 · Turek–Hron benchmark</b>
+          <span>My own solution. A flexible flap shedding a vortex street — sustained rather than damped, which is the behaviour the benchmark exists to test.</span>
+        </figcaption>
+      </figure>
       <div class="card">
         <h3 style="font-size:17px">Validation, not vibes</h3>
         <p style="font-size:14.7px;margin-bottom:14px">
-          The thesis framework is checked against the Turek–Hron benchmarks that everyone in the field
+          The framework is checked against the Turek–Hron benchmarks that everyone in the field
           reports — the same quantities, the same meshes, published numbers to disagree with.
         </p>
         <div class="stats">
@@ -870,11 +910,6 @@ svg.viz-tall{display:none}
           <div class="stat"><b class="num">&lt;0.5%</b><span>error vs reference</span></div>
           <div class="stat"><b class="num">L0–L5</b><span>refinement levels</span></div>
         </div>
-        <p style="font-size:13.8px;margin-top:16px;color:var(--muted)">
-          The animation at the top of this page is the FSI2 case from that framework — a flexible flap
-          shedding a vortex street, sustained rather than damped, which is the behaviour the benchmark
-          exists to test.
-        </p>
       </div>
     </div>
   </div>
