@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Prince Savsaviya — Software &amp; ML Engineer</title>
-<meta name="description" content="Prince Savsaviya — Software &amp; ML Engineer, M.S. Computer Science, UC Riverside. Author of TethrLink, a second display for Linux over USB. Physics-informed ML published in the Journal of Power Sources."/>
-<meta property="og:title" content="Prince Savsaviya — Software &amp; ML Engineer"/>
+<title>Prince Savsaviya: Software &amp; ML Engineer</title>
+<meta name="description" content="Prince Savsaviya: Software &amp; ML Engineer, M.S. Computer Science, UC Riverside. Author of TethrLink, a second display for Linux over USB. Physics-informed ML published in the Journal of Power Sources."/>
+<meta property="og:title" content="Prince Savsaviya: Software &amp; ML Engineer"/>
 <meta property="og:description" content="I work where simulation meets systems: an open-source second display for Linux, a physics-informed battery model published in the Journal of Power Sources, and an FSI framework validated under 0.5%."/>
 <meta property="og:type" content="website"/>
+<meta property="og:url" content="https://princesavsaviya.com/"/>
+<link rel="canonical" href="https://princesavsaviya.com/"/>
 <meta name="theme-color" content="#e9e8f4" media="(prefers-color-scheme: light)"/>
 <meta name="theme-color" content="#05050f" media="(prefers-color-scheme: dark)"/>
 
@@ -183,6 +185,10 @@ img,video,svg{max-width:100%}
 main{position:relative;z-index:3}
 section.wrap{padding:100px 28px;scroll-margin-top:88px}
 @media(max-width:720px){section.wrap{padding:68px 22px}}
+/* At 320px the card's 26px gutters left a flow chip 5px of headroom.
+   Trimming the gutters below 480px buys 16px back without changing
+   the card's proportions at any width a desktop ever sees. */
+@media(max-width:480px){section.wrap{padding:58px 16px}}
 .rule{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto}
 
 /* ═══════════════════════ NAV ═══════════════════════ */
@@ -275,6 +281,7 @@ code{background:var(--panel-2);border:1px solid var(--line);padding:2px 6px;bord
   box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s,border-color .25s;
 }
 .card.lift:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:var(--line-lit)}
+@media(max-width:480px){.card{padding:18px}}
 .stage{
   background:radial-gradient(120% 100% at 50% 0%,var(--glow-1),transparent 62%),var(--panel);
   border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);
@@ -357,6 +364,34 @@ a.pill:hover{border-color:var(--violet);transform:translateY(-1px)}
 .flow span.out{border-color:color-mix(in srgb,var(--green) 42%,transparent);color:var(--green);
   background:color-mix(in srgb,var(--green) 8%,var(--panel))}
 .flow i{color:var(--muted);font-style:normal;font-size:12px}
+/* The wrap was the bug, not the width. Nothing overflowed, but at 320px a
+   five-step chain broke onto nine lines with an arrow dangling off the end
+   of four of them, pointing at nothing. A sequence read top-to-bottom in
+   scrambled fragments is not the sequence. At 768px the chain is still 745px
+   of content in a 643px box, so from there down it stays on one line and
+   scrolls instead. The mask is pinned to the element box rather than
+   the scrolled content, so the last chip fades only while there is more to
+   its right, and costs nothing when the chain already fits. */
+@media(max-width:768px){
+  /* A grid item's automatic minimum size is its content, so the card grew to
+     fit the un-wrapped chain instead of letting the chain scroll inside it.
+     Only `.term` escaped that before, and only because it is overflow:hidden. */
+  .work>.card,.split>*{min-width:0}
+  .flow{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;padding-bottom:2px;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);
+    mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent)}
+  .flow span,.flow i{flex:none}
+  /* Same story in the hero terminal, which has scrolled since it was built
+     with no sign that it does. */
+  .term-body{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent);
+    mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent)}
+}
+@media(max-width:480px){
+  .flow{font-size:11px;gap:6px}
+  .flow span{padding:4px 9px}
+  .flow i{font-size:11.5px}
+}
 
 /* ═══════════════ THE HARD PART ═══════════════ */
 /* Every project gets one. A portfolio that only lists what was built
@@ -484,7 +519,7 @@ svg.viz-tall{display:none}
 
 <div class="nav-shell" id="nav-shell">
   <div class="nav">
-    <a class="brand" href="#top" aria-label="Prince Savsaviya — top of page">
+    <a class="brand" href="#top" aria-label="Prince Savsaviya, top of page">
       <span class="mk" aria-hidden="true"><i>&lt;</i>PS<i>/&gt;</i></span>
       <span class="bname">Prince&nbsp;Savsaviya</span>
     </a>
@@ -521,8 +556,8 @@ svg.viz-tall{display:none}
       <p class="hero-line">I work where simulation meets systems.</p>
       <p class="lede">
         Software &amp; ML engineer, M.S. Computer Science from UC&nbsp;Riverside. I ship systems
-        software — an open-source second display for Linux, a Layer-7 load balancer in Go, a
-        streaming geospatial pipeline — and the numerical solvers behind published research. I can
+        software: an open-source second display for Linux, a Layer-7 load balancer in Go, a
+        streaming geospatial pipeline, and the numerical solvers behind published research. I can
         tell you which decision in each one was the hard part.
       </p>
       <div class="hero-btns">
@@ -542,7 +577,7 @@ svg.viz-tall{display:none}
     </div>
 
     <!-- The stage is the product actually starting up, not a decoration. -->
-    <div class="term" role="img" aria-label="Terminal session: installing TethrLink from Snap, then starting the server — it verifies a hardware encoder, detects the USB tether interface, creates a virtual display, and accepts a tablet connection with touch enabled.">
+    <div class="term" role="img" aria-label="Terminal session: installing TethrLink from Snap, then starting the server: it verifies a hardware encoder, detects the USB tether interface, creates a virtual display, and accepts a tablet connection with touch enabled.">
       <div class="term-bar">
         <span class="term-dot" style="background:#f87171"></span>
         <span class="term-dot" style="background:#fbbf24"></span>
@@ -573,7 +608,7 @@ svg.viz-tall{display:none}
     <div class="eyebrow">Just shipped · Version 2.0.0</div>
     <h2>TethrLink turns a tablet into a second display you can touch.</h2>
     <p class="lede">
-      An Android tablet becomes a genuine second monitor for Linux over a USB cable — no Wi-Fi,
+      An Android tablet becomes a genuine second monitor for Linux over a USB cable: no Wi-Fi,
       no router, no cloud. Not a mirror: GNOME arranges it like any other display, and windows
       you drag onto it stay there. Version&nbsp;2.0.0 adds touch, so your finger drives the pointer.
     </p>
@@ -608,7 +643,7 @@ svg.viz-tall{display:none}
       <path d="M372 116l9-5v10z" fill="var(--green)"/>
       <text x="420" y="136" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--green)">input · same connection</text>
 
-      <text x="450" y="186" font-family="IBM Plex Mono, monospace" font-size="11.5" fill="var(--muted)" text-anchor="middle">UDP :8765 discovery — the tablet finds the server itself</text>
+      <text x="450" y="186" font-family="IBM Plex Mono, monospace" font-size="11.5" fill="var(--muted)" text-anchor="middle">UDP :8765 discovery, the tablet finds the server itself</text>
       <line x1="192" y1="170" x2="192" y2="190" stroke="var(--line-lit)" stroke-width="1.2" stroke-dasharray="3 4"/>
       <line x1="192" y1="190" x2="710" y2="190" stroke="var(--line-lit)" stroke-width="1.2" stroke-dasharray="3 4"/>
       <line x1="710" y1="190" x2="710" y2="170" stroke="var(--line-lit)" stroke-width="1.2" stroke-dasharray="3 4"/>
@@ -668,7 +703,7 @@ svg.viz-tall{display:none}
       </p>
       <p>
         Touch is <strong>off by default</strong>. Something that can drive your desktop should be
-        opted into, so you turn it on in the server window — and the platform, not our care, keeps it
+        opted into, so you turn it on in the server window, and the platform, not our care, keeps it
         honest: input goes through GNOME's <code>RemoteDesktop</code> API, which scopes it to the
         virtual display. It cannot reach your laptop's own screen.
       </p>
@@ -676,8 +711,8 @@ svg.viz-tall{display:none}
       <div class="hard">
         <span class="lbl">The hard part</span>
         <p>
-          The tether subnet can't be assumed. An earlier version hardcoded <code>192.168.42.0/24</code>
-          — the AOSP default — and broke on every device that hands out something else. What is
+          The tether subnet can't be assumed. An earlier version hardcoded <code>192.168.42.0/24</code>,
+          the AOSP default, and broke on every device that hands out something else. What is
           actually reliable is <em>which interface is USB-attached</em>: on Linux,
           <code>/sys/class/net/&lt;iface&gt;/device</code> resolves through a path segment named
           <code>usbN</code> for USB-enumerated devices and never for PCI or bridges. So the server
@@ -690,13 +725,13 @@ svg.viz-tall{display:none}
     <div>
       <div class="card" style="margin-bottom:14px">
         <h3 style="font-size:17px">Install</h3>
-        <p style="font-size:15.5px;margin-bottom:12px">Snap is the short path — one command, no build.</p>
+        <p style="font-size:15.5px;margin-bottom:12px">Snap is the short path: one command, no build.</p>
         <div style="background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:var(--mono);font-size:13.5px;color:var(--text);overflow-x:auto">
           <span style="color:var(--muted)">$</span> sudo snap install tethrlink
         </div>
         <p style="font-size:14.5px;margin-top:12px;color:var(--muted)">
           Requires GNOME on Wayland for the virtual display and touch. X11 falls back to JPEG,
-          video only — and the app says so rather than pretending otherwise.
+          video only, and the app says so rather than pretending otherwise.
         </p>
       </div>
       <div class="work-links">
@@ -704,11 +739,11 @@ svg.viz-tall{display:none}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
           Source
         </a>
-        <a class="mini" href="https://princesavsaviya.github.io/TethrLink" target="_blank" rel="noopener">
+        <a class="mini" href="https://tethrlink.princesavsaviya.com" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           Project site
         </a>
-        <a class="mini" href="https://princesavsaviya.github.io/TethrLink/#alpha" target="_blank" rel="noopener">
+        <a class="mini" href="https://tethrlink.princesavsaviya.com/#alpha" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
           Android alpha
         </a>
@@ -739,7 +774,7 @@ svg.viz-tall{display:none}
     <article class="card lift reveal">
       <div class="work-head">
         <div>
-          <h3>Wildfire-Twin — streaming geospatial digital twin</h3>
+          <h3>Wildfire-Twin: streaming geospatial digital twin</h3>
           <div class="work-meta">Kafka · Spark Structured Streaming · Apache Sedona</div>
         </div>
         <div class="work-links">
@@ -761,7 +796,7 @@ svg.viz-tall{display:none}
       <div class="hard">
         <span class="lbl">The hard part</span>
         <p>
-          The spatial join was the bottleneck, and it wasn't the algorithm — it was the boundary.
+          The spatial join was the bottleneck, and it wasn't the algorithm: it was the boundary.
           Moving the join onto native Sedona Java expressions instead of crossing into Python per row
           cut <strong>P95 latency by 91%</strong>, from 215s to 18.65s.
         </p>
@@ -791,7 +826,7 @@ svg.viz-tall{display:none}
         <p>
           Getting the circuit breaker to fail <em>usefully</em>. Ejecting an unhealthy backend
           immediately just moves its load onto the next one and takes that down too, so the breaker
-          needs a cooldown window before a backend is eligible again — otherwise a single slow
+          needs a cooldown window before a backend is eligible again. Otherwise a single slow
           service cascades through the whole pool.
         </p>
       </div>
@@ -802,7 +837,7 @@ svg.viz-tall{display:none}
     <article class="card lift reveal">
       <div class="work-head">
         <div>
-          <h3>RetrieveX — hybrid search engine</h3>
+          <h3>RetrieveX: hybrid search engine</h3>
           <div class="work-meta">BM25 + dense retrieval over 150k+ drug records</div>
         </div>
         <div class="work-links">
@@ -818,8 +853,8 @@ svg.viz-tall{display:none}
       </div>
       <p>
         Lexical and dense retrieval run side by side and are merged with reciprocal rank fusion, behind
-        a Django REST API. Three plug-and-play backends — Lucene, Elasticsearch, and BERT/FAISS — so
-        the retrieval strategy is swappable rather than baked in.
+        a Django REST API. Three plug-and-play backends: Lucene, Elasticsearch, and BERT/FAISS. The
+        retrieval strategy is swappable rather than baked in.
       </p>
       <div class="hard">
         <span class="lbl">The hard part</span>
@@ -860,7 +895,7 @@ svg.viz-tall{display:none}
       <div class="hard">
         <span class="lbl">The hard part</span>
         <p>
-          Partitioned FSI diverges when the fluid and structure have comparable density — the
+          Partitioned FSI diverges when the fluid and structure have comparable density: the
           added-mass effect. Fixed-point iteration simply won't converge. Aitken relaxation adapts the
           step from the residual history each iteration, which is what makes the FSI2 oscillation
           stable rather than explosive.
@@ -896,7 +931,7 @@ svg.viz-tall{display:none}
       <p style="margin-bottom:14px">
         Physics-informed PDEs combined with Gaussian Process Regression over <strong>200k+ charge
         cycles</strong>, forecasting State of Charge, State of Health and Remaining Useful Life for
-        NCA cells across varying temperature and C-rate — with GPR, Random Forest, SVM, XGBoost and
+        NCA cells across varying temperature and C-rate, with GPR, Random Forest, SVM, XGBoost and
         neural networks compared as an ensemble.
       </p>
       <div class="stats" style="margin-top:18px">
@@ -908,7 +943,7 @@ svg.viz-tall{display:none}
         <span class="lbl">The hard part</span>
         <p>
           Making the physics actually constrain the fit rather than sit alongside it. The PDE terms
-          have to enter where the data is thinnest — otherwise the ML half simply overrides them and
+          have to enter where the data is thinnest. Otherwise the ML half simply overrides them and
           you have a data-only model wearing a physics label.
         </p>
       </div>
@@ -920,14 +955,14 @@ svg.viz-tall{display:none}
                aria-label="Computed FSI2 benchmark: a flexible flap behind a cylinder oscillating in a vortex street."></video>
         <figcaption>
           <b>FSI2 · Turek–Hron benchmark</b>
-          <span>My own solution. A flexible flap shedding a vortex street — sustained rather than damped, which is the behaviour the benchmark exists to test.</span>
+          <span>My own solution. A flexible flap shedding a vortex street, sustained rather than damped, which is the behaviour the benchmark exists to test.</span>
         </figcaption>
       </figure>
       <div class="card">
         <h3 style="font-size:17px">Validation, not vibes</h3>
         <p style="font-size:15.5px;margin-bottom:14px">
           The framework is checked against the Turek–Hron benchmarks that everyone in the field
-          reports — the same quantities, the same meshes, published numbers to disagree with.
+          reports: the same quantities, the same meshes, published numbers to disagree with.
         </p>
         <div class="stats">
           <div class="stat"><b class="num">9</b><span>benchmarks validated</span></div>
@@ -950,22 +985,22 @@ svg.viz-tall{display:none}
 
   <div class="reveal">
     <div class="tl-item">
-      <div class="tl-when"><b>Mar 2026 — Present</b>Open source</div>
+      <div class="tl-when"><b>Mar 2026 – Present</b>Open source</div>
       <div class="tl-body">
-        <h3>Author &amp; maintainer — TethrLink</h3>
+        <h3>Author &amp; maintainer: TethrLink</h3>
         <div class="tl-org">GPL v3 · Python, GStreamer, PipeWire, Wayland/D-Bus, GTK4, Kotlin</div>
         <ul>
           <li>Shipped <strong>2.0.0</strong>, adding touch: pointer, click, right-click and two-finger scroll injected through GNOME's <code>RemoteDesktop</code> API, which scopes input to the virtual display at the platform level. Coordinates travel normalised to [0,1] with <code>type/length/payload</code> framing, so an unrecognised message is skippable rather than desynchronising an older peer.</li>
           <li>Built the capture path on Mutter's ScreenCast D-Bus API and PipeWire to create a <strong>true virtual monitor rather than a mirror</strong>, deriving capture geometry from the tablet's own height and aspect ratio so the shared edge is fully crossable in GNOME and the image is never stretched.</li>
-          <li>Negotiated the H.264 encoder at runtime, hardware first, accepting a candidate only after it genuinely encodes a frame at the real capture size — then cached the winner against a fingerprint of the GStreamer install, cutting startup from ~2.06s cold to ~0.44s warm and re-probing automatically after a driver upgrade.</li>
-          <li>Replaced a hardcoded tether subnet with runtime detection of USB-attached interfaces via <code>/sys/class/net</code>, restricting the server to USB-attached peers and loopback — a boundary that matters far more once reaching the port means controlling the machine, not just seeing it.</li>
+          <li>Negotiated the H.264 encoder at runtime, hardware first, accepting a candidate only after it genuinely encodes a frame at the real capture size, then cached the winner against a fingerprint of the GStreamer install, cutting startup from ~2.06s cold to ~0.44s warm and re-probing automatically after a driver upgrade.</li>
+          <li>Replaced a hardcoded tether subnet with runtime detection of USB-attached interfaces via <code>/sys/class/net</code>, restricting the server to USB-attached peers and loopback, a boundary that matters far more once reaching the port means controlling the machine, not just seeing it.</li>
           <li>Packaged for <strong>Snap and Debian</strong>, and shipped the Jetpack Compose / MediaCodec Android client to the Play Store closed alpha track (Kotlin DSL signing, R8, targetSdk 35).</li>
         </ul>
       </div>
     </div>
 
     <div class="tl-item">
-      <div class="tl-when"><b>May 2025 — Mar 2026</b>Riverside, CA</div>
+      <div class="tl-when"><b>May 2025 – Mar 2026</b>Riverside, CA</div>
       <div class="tl-body">
         <h3>Graduate Researcher</h3>
         <div class="tl-org">University of California, Riverside</div>
@@ -979,7 +1014,7 @@ svg.viz-tall{display:none}
     </div>
 
     <div class="tl-item">
-      <div class="tl-when"><b>May 2023 — Dec 2023</b>During B.E.</div>
+      <div class="tl-when"><b>May 2023 – Dec 2023</b>During B.E.</div>
       <div class="tl-body">
         <h3>Research Intern</h3>
         <div class="tl-org">Adani Institute of Infrastructure Engineering</div>
@@ -1077,10 +1112,10 @@ svg.viz-tall{display:none}
       <h2>Tell me what you're building.</h2>
       <p class="lede" style="margin-bottom:26px">
         Open to roles in Software Engineering, ML Engineering, Applied AI and Systems Development.
-        Whether it's about the research, a TethrLink bug, or a role — my inbox is open.
+        Whether it's about the research, a TethrLink bug, or a role, my inbox is open.
       </p>
       <div class="hero-btns">
-        <a class="btn btn-solid" href="mailto:princesavsaviya2023.learning@gmail.com">
+        <a class="btn btn-solid" href="mailto:princemsavs@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           Say hello
         </a>
@@ -1093,9 +1128,9 @@ svg.viz-tall{display:none}
 
     <div class="reveal">
       <div class="links-list">
-        <a class="link-row" href="mailto:princesavsaviya2023.learning@gmail.com">
+        <a class="link-row" href="mailto:princemsavs@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <b>Email</b><span>princesavsaviya2023.learning@gmail.com</span>
+          <b>Email</b><span>princemsavs@gmail.com</span>
         </a>
         <a class="link-row" href="https://github.com/princesavsaviya" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
@@ -1109,7 +1144,7 @@ svg.viz-tall{display:none}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.25v13m0-13C10.83 5.48 9.25 5 7.5 5S4.17 5.48 3 6.25v13C4.17 18.48 5.75 18 7.5 18s3.33.48 4.5 1.25m0-13C13.17 5.48 14.75 5 16.5 5c1.75 0 3.33.48 4.5 1.25v13C19.83 18.48 18.25 18 16.5 18c-1.75 0-3.33.48-4.5 1.25"/></svg>
           <b>Publication</b><span>J. Power Sources · 2025</span>
         </a>
-        <a class="link-row" href="https://princesavsaviya.github.io/TethrLink" target="_blank" rel="noopener">
+        <a class="link-row" href="https://tethrlink.princesavsaviya.com" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="14" height="11" rx="2"/><rect x="17" y="8" width="5" height="12" rx="1.5"/><path d="M6 19h6"/></svg>
           <b>TethrLink</b><span>project site</span>
         </a>
